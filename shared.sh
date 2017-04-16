@@ -72,8 +72,6 @@ brew update
 brew tap homebrew/bundle
 brew bundle
 
-./Scripts/homebrew.sh
-
 # Install global NPM packages
 npm install --global yarn
 
