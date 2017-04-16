@@ -59,14 +59,3 @@ ensure_repo(){
     fi
   )
 }
-
-# Create a Sites directory
-# This is a default directory for macOS user accounts but doesn't comes pre-installed
-[ -d $HOME/Repositories ] || mkdir $HOME/Repositories
-[ -d $HOME/Sites ] || mkdir $HOME/Sites
-
-# Set macOS preferences
-# We will run this last because this will reload the shell
-source macos
-
-echo "Done."

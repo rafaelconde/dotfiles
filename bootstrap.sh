@@ -34,6 +34,19 @@ chsh -s /bin/zsh
 brew install hub
 brew update
 
+# Shell
+brew install zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Set ZSH as the default shell
+chsh -s /bin/zsh
+
+# Create a Sites directory
+# This is a default directory for macOS user accounts but doesn't comes pre-installed
+[ -d $HOME/Repositories ] || mkdir $HOME/Repositories
+[ -d $HOME/Sites ] || mkdir $HOME/Sites
+
+
 # ==============================================================================
 # INSTALL APPS
 # ==============================================================================
@@ -52,16 +65,16 @@ brew cask install tower
 brew cask install omnifocus
 
 # ==============================================================================
+# SET UP ATOM
+# ==============================================================================
+
+# Symlink config files
+ln -s -f ~/.dotfiles/.atom/ ~/.atom/
+
+# ==============================================================================
 # macOS
 # ==============================================================================
 
 header "Tweaking macOS Preferences"
 
 source macos
-
-# ==============================================================================
-# SET UP ATOM
-# ==============================================================================
-
-# Symlink config files
-ln -s -f ~/.dotfiles/.atom/ ~/.atom/
