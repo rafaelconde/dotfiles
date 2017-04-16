@@ -1,0 +1,184 @@
+atom-workspace {
+  // One Dark, One Light, Genesis
+  &.theme-genesis-ui,
+  &.theme-one-dark-ui,
+  &.theme-one-light-ui {
+    // Find in Project
+    .preview-pane .path.list-nested-item {
+      .icon-book,
+      .icon-file-media,
+      .icon-file-text {
+        &:before {
+          top: 0;
+        }
+      }
+    }
+  }
+
+  // Atom Dark, Atom Light, Genesis
+  &.theme-genesis-ui,
+  &.theme-atom-dark-ui,
+  &.theme-atom-light-ui {
+    // Sidebar
+    .entries.list-tree {
+      .file .icon {
+        &::before {
+          top: 7px;
+        }
+      }
+    }
+  }
+
+  &.theme-genesis-ui {
+    // Tab Bar
+    .tab-bar .tab {
+      .title {
+        &:before {
+          position: relative;
+          vertical-align: middle;
+        }
+
+        // Settings Icon
+        &.icon-tools:before {
+          margin-top: -4px;
+        }
+      }
+    }
+  }
+
+  // Atom Material
+  &.theme-atom-material-ui {
+    // Tab Bar
+    .tab-bar .tab {
+      .title:before {
+        margin-left: 0;
+        margin-right: 5px !important;
+        position: relative;
+        vertical-align: middle;
+
+        .platform-win32 & {
+          top: 9px;
+        }
+      }
+
+      .title.icon:before {
+        vertical-align: text-bottom;
+      }
+    }
+
+    // Sidebar
+    .entries.list-tree .file .icon::before {
+      .platform-win32 & {
+        top: 7px;
+      }
+    }
+
+    // Fuzzy Finder
+    .fuzzy-finder {
+      .icon::before {
+        .platform-win32 & {
+          top: 3px;
+        }
+      }
+    }
+
+    .icon-file-directory {
+      &:before {
+        margin-right: 10px !important;
+      }
+    }
+
+    .icon-file-text,
+    .icon-book {
+      &:before {
+        top: 6px;
+      }
+    }
+  }
+
+  // Seti
+  &.theme-seti-ui {
+    // Tab Bar
+    .tab-bar .tab {
+      .title:before {
+        float: none;
+        margin-left: 0;
+        margin-right: 5px !important;
+        position: relative;
+        vertical-align: middle;
+      }
+
+      .title.icon:before {
+        margin-top: 0;
+        vertical-align: middle;
+      }
+    }
+
+    .name.icon.icon-repo:before {
+      top: -3px;
+    }
+  }
+
+  &.theme-nova-atom-ui {
+    // Tab Bar
+    .tab-bar .tab {
+      .title:before {
+        float: none;
+        margin-left: -0;
+        margin-right: 10px !important;
+        position: relative;
+        vertical-align: middle;
+      }
+
+      .title.icon:before {
+        margin-top: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // Spacegray Dark
+  &.theme-spacegray-dark-ui {
+    // Sidebar
+    .entries.list-tree .file .icon::before {
+      vertical-align: middle;
+      top: 0;
+    }
+
+    // Tab Bar
+    .tab-bar .tab {
+      margin-left: 28px;
+
+      .title::before {
+        font-size: 22px;
+        line-height: 9px;
+        margin-left: -26px;
+        margin-top: 10px;
+        position: absolute;
+      }
+    }
+  }
+}
+
+// One Dark, One Light with minimum tab sizing
+.one-dark-light-theme-minimum-tab-sizing() {
+  .tab-bar .tab .title {
+    &::before {
+      position: static;
+      margin-top: 0;
+      margin-left: 0;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  [theme-one-dark-ui-tabsizing="auto"], [theme-one-light-ui-tabsizing="auto"] {
+    .one-dark-light-theme-minimum-tab-sizing();
+  }
+}
+
+[theme-one-dark-ui-tabsizing="minimum"], [theme-one-light-ui-tabsizing="minimum"] {
+  .one-dark-light-theme-minimum-tab-sizing();
+}
