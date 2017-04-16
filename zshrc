@@ -4,14 +4,6 @@ export PATH=""
 if [ -x /usr/libexec/path_helper ]; then eval "$(/usr/libexec/path_helper -s)"; fi
 if [ -f /etc/environment ]; then source /etc/environment; fi
 
-# Oh-my-zsh
-ZSH=$HOME/.oh-my-zsh
-plugins=(git github pow atom pod grunt zsh-syntax-highlighting)
-source $ZSH/oh-my-zsh.sh
-
-# For local customizations
-if [ -f ~/.profile ] || [ -h ~/.profile ]; then source ~/.profile; fi
-
 # Git commands
 alias g="hub"
 alias delete-local-branch='git branch -D'
@@ -31,14 +23,6 @@ function strip-diff {
     done
   )
 }
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-
 
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile" # Load the default .profile
 
