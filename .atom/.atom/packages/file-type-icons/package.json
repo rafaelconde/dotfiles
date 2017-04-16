@@ -1,0 +1,70 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-1161028-1565-1vxxl3w"
+    ]
+  ],
+  "_from": "../d-1161028-1565-igh4qm/package.tgz",
+  "_id": "file-type-icons@1.3.3",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/file-type-icons",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-1161028-1565-igh4qm/package.tgz",
+  "_shasum": "b300928db425f81e119989f4796ce5ef93cf97f0",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-1161028-1565-igh4qm/package.tgz",
+  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-1161028-1565-1vxxl3w",
+  "author": {
+    "name": "Lee Dohm",
+    "email": "lee@lee-dohm.com"
+  },
+  "bugs": {
+    "url": "https://github.com/lee-dohm/file-type-icons/issues"
+  },
+  "dependencies": {},
+  "description": "Changes the icon for files in the Tree View and Tabs to reflect the file's type",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.6.0 <2.0.0"
+  },
+  "homepage": "https://github.com/lee-dohm/file-type-icons#readme",
+  "keywords": [
+    "file",
+    "type",
+    "icons",
+    "tree-view",
+    "tabs"
+  ],
+  "license": "MIT",
+  "name": "file-type-icons",
+  "optionalDependencies": {},
+  "readme": "# File Type Icons\n\nChanges the icon for files in the Tree View and Tabs to reflect the file's type.\n\n![Screenshot](https://raw.githubusercontent.com/lee-dohm/file-type-icons/master/file-type-icons.png)\n\n## Usage\n\nJust install and enjoy. Now with support for [Nuclide](http://nuclide.io)!\n\n### Icons\n\nThis is just a sampling of the icons in the set for now. (I don't know how to make Octicons work in Markdown yet, so links will have to do :cry:)\n\n* Archive files: http://octicons.github.com/icon/file-zip/\n* CoffeeScript files: http://fortawesome.github.io/Font-Awesome/icon/coffee/\n* Configuration files: http://octicons.github.com/icon/gear/\n* CTAGS files: http://octicons.github.com/icon/tag/\n* Cucumber files: https://octicons.github.com/icon/browser/\n* Database files: http://octicons.github.com/icon/database/\n* Fonts: http://octicons.github.com/icon/pencil/\n* `.git` directories: http://octicons.github.com/icon/repo/\n* HTML files: http://octicons.github.com/icon/globe/\n* Images: http://octicons.github.com/icon/file-media/\n* JavaScript files: http://vorillaz.github.io/devicons/#/singleicon/javascript\n* JSON, YAML and CSON files: http://octicons.github.com/icon/settings/\n* Lock files: http://octicons.github.com/icon/lock/\n* Log files: http://octicons.github.com/icon/bug/\n* Markdown files: http://octicons.github.com/icon/markdown/\n* PDF files: http://octicons.github.com/icon/file-pdf/\n* Ruby files: http://octicons.github.com/icon/ruby/\n* Shell scripts: http://octicons.github.com/icon/terminal/\n* Source map files: http://octicons.github.com/icon/location/\n* Stylesheets: http://octicons.github.com/icon/paintcan/\n* Symlinks: http://octicons.github.com/icon/file-symlink-file/\n* Templates: http://octicons.github.com/icon/code/\n* TODO files: http://octicons.github.com/icon/checklist/\n* Videos: http://octicons.github.com/icon/device-camera-video/\n\n## Copyright\n\nCopyright &copy; 2014-2016 [Lee Dohm](http://www.lee-dohm.com), [Lifted Studios](http://www.liftedstudios.com). See [LICENSE](https://github.com/lee-dohm/auto-copyright/blob/master/LICENSE.md) for details.\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lee-dohm/file-type-icons.git"
+  },
+  "version": "1.3.3"
+}

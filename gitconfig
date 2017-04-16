@@ -1,0 +1,58 @@
+[user]
+  name = Rafael Conde
+  email = rafahari@me.com
+
+[github]
+	user = rafaelconde
+
+[core]
+  quotepath = false
+  excludesfile = ~/.gitignore
+
+[color]
+  ui = true
+
+[push]
+  default = current
+
+[pull]
+  default = current
+  rebase = true
+
+[diff]
+  tool = kdiff3
+[difftool]
+  prompt = false
+
+[merge]
+  tool = kdiff3
+[mergetool]
+  prompt = false
+
+[branch]
+  autosetupmerge = true
+
+[alias]
+  g = git
+  st = status
+  co = commit
+  br = branch
+  ch = checkout
+  st = status
+  c = commit -a -v
+  d = diff
+  p = push
+  pu = push -u
+  l = log --oneline
+  pr = pull-request
+
+[hub]
+  protocol = https
+
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+
+[credential]
+	helper = osxkeychain

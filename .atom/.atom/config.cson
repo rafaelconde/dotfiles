@@ -1,0 +1,18 @@
+"*":
+  core:
+    disabledPackages: [
+      "atom-ternjs"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "firewatch-syntax"
+    ]
+    titleBar: "custom-inset"
+  editor:
+    fontSize: 29
+    scrollPastEnd: true
+  "exception-reporting":
+    userId: "5f011a09-c001-cd97-d5b4-43e7920d6244"
+  welcome:
+    showOnStartup: false
