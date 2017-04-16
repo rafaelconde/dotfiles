@@ -14,6 +14,7 @@ ensure_symlink ~/.dotfiles/vimrc ~/.vimrc
 ensure_symlink ~/.dotfiles/zshrc ~/.zshrc
 ensure_symlink ~/.dotfiles/gitconfig ~/.gitconfig
 ensure_symlink ~/.dotfiles/gitignore ~/.gitignore
+ensure_symlink ~/.dotfiles/.atom ~/.atom
 
 # ==============================================================================
 # SET UP PACKAGES
@@ -63,13 +64,6 @@ header "Installing apps"
 # brew cask install framer
 # brew cask install tower
 # brew cask install omnifocus
-
-# ==============================================================================
-# SET UP ATOM
-# ==============================================================================
-
-# Symlink config files
-ln -s ~/.dotfiles/.atom/ ~/.atom
 
 # ==============================================================================
 # macOS
