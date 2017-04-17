@@ -27,9 +27,6 @@ ensure_repo ~/.oh-my-zsh git@github.com:robbyrussell/oh-my-zsh.git
 ensure_symlink ~/.oh-my-zsh/custom/plugins/pure/async.zsh /usr/local/share/zsh/site-functions/async
 ensure_repo ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting git@github.com:zsh-users/zsh-syntax-highlighting.git
 
-# Set ZSH as the default shell
-chsh -s /bin/zsh
-
 # Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew install hub
