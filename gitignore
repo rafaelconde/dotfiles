@@ -13,3 +13,4 @@ gin-bin
 *.cache
 *.ca-certs
 .sass-cache/
+*.codekit*
