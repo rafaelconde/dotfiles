@@ -10,7 +10,6 @@
  */
 
 atom-workspace {
-
 }
 
 atom-panel-container,
@@ -22,11 +21,17 @@ atom-pane-container,
 .tab-bar .tab .title,
 .tab-bar .tab.active,
 .tab-bar .tab.active[data-type$="Editor"],
+.tab-bar .tab:last-of-type,
 .settings-view .panels,
 .settings-view .config-menu,
 atom-dock .tab-bar .tab.active {
   background-color: #010407;
   font-family: SFProText-Regular;
+  box-shadow: none;
+}
+
+.tab-bar {
+  border-bottom: 1px solid #181a1f;
 }
 
 .line-number {
