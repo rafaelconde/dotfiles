@@ -1,16 +1,38 @@
 "*":
   core:
+    closeDeletedFileTabs: true
     disabledPackages: [
-      "atom-ternjs"
+      "react"
+      "seti-icons"
+      "front-icons"
+      "file-icons"
     ]
+    projectHome: "/Users/rafaelconde/Repositories"
     telemetryConsent: "limited"
     themes: [
       "one-dark-ui"
       "firewatch-syntax"
     ]
     titleBar: "custom-inset"
-  editor: {}
+  "custom-app-icon":
+    path: "/Users/rafaelconde/.dotfiles/.atom"
+  editor:
+    fontFamily: "SFMono-Regular"
+    fontSize: 12
+    invisibles: {}
+    scrollPastEnd: true
   "exception-reporting":
     userId: "85b1f9ea-8353-646b-8c1b-b13a29778be4"
+  "language-babel":
+    taggedTemplateGrammar: [
+      "css:source.css"
+      "html:text.html.basic"
+      "sql:source.sql"
+    ]
+  "linter-ui-default":
+    showPanel: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
   welcome:
     showOnStartup: false

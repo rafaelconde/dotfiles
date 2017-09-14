@@ -15,14 +15,24 @@
   margin-top: 3px;
 
   .message-with-severity(@color) {
-    color: contrast(@color);
-    background-color: @color;
+    color: @text-color;
+    background-color: @inset-panel-background-color;
+
+    border-left: 8px solid @color;
+    border-right: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+    &:first-child {
+      border-top: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+    }
+    &:last-child {
+      border-bottom: 1px solid fade(contrast(@inset-panel-background-color), 5%);
+    }
+
     &:last-child::before {
       border-color: transparent transparent @color @color;
     }
 
     a {
-      color: contrast(@color);
+      color: @text-color;
     }
   }
 
@@ -126,21 +136,17 @@ atom-text-editor.editor .linter-highlight, .linter-highlight {
 }
 .linter-gutter.icon::before {
   width: 100%;
+  margin-right: 0px;
   font-size: 1em;
 }
 
 .linter-status-count {
-  span {
-    border-radius: 0px;
-    padding: 4px 6px;
+  a {
+    padding: 2px;
   }
-  span:first-child {
-    border-top-left-radius: @component-border-radius;
-    border-bottom-left-radius: @component-border-radius;
-  }
-  span:last-child {
-    border-top-right-radius: @component-border-radius;
-    border-bottom-right-radius: @component-border-radius;
+  span.icon::before {
+    font-size: 12px;
+    vertical-align: middle;
   }
   &.hide-config, &.hide-pane {
     display: none;
@@ -149,4 +155,8 @@ atom-text-editor.editor .linter-highlight, .linter-highlight {
 .linter-cursor-line {
   width: 100%;
   padding-left: 0;
+}
+
+linter-decoration {
+  pointer-events: none;
 }

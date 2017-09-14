@@ -1,40 +1,101 @@
 /* @flow */
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { CompositeDisposable, Disposable } from 'atom'
-
+import { CompositeDisposable } from 'atom'
 import Delegate from './delegate'
-import Component from './component'
+import PanelDock from './dock'
 import type { LinterMessage } from '../types'
 
 class Panel {
+  panel: ?PanelDock;
+  element: HTMLElement;
   delegate: Delegate;
+  messages: Array<LinterMessage>;
+  deactivating: boolean;
   subscriptions: CompositeDisposable;
-
+  showPanelConfig: boolean;
+  hidePanelWhenEmpty: boolean;
+  showPanelStateMessages: boolean;
+  activationTimer: number;
   constructor() {
+    this.panel = null
+    this.element = document.createElement('div')
+    this.delegate = new Delegate()
+    this.messages = []
+    this.deactivating = false
     this.subscriptions = new CompositeDisposable()
+    this.showPanelStateMessages = false
 
-    const element = document.createElement('div')
-    const panel = atom.workspace.addBottomPanel({
-      item: element,
-      visible: true,
-      priority: 500,
-    })
-    this.subscriptions.add(new Disposable(function() {
-      panel.destroy()
-    }))
-
-    this.delegate = new Delegate(panel)
     this.subscriptions.add(this.delegate)
-
-    ReactDOM.render(<Component delegate={this.delegate} />, element)
+    this.subscriptions.add(atom.config.observe('linter-ui-default.hidePanelWhenEmpty', (hidePanelWhenEmpty) => {
+      this.hidePanelWhenEmpty = hidePanelWhenEmpty
+      this.refresh()
+    }))
+    this.subscriptions.add(atom.workspace.onDidDestroyPaneItem(({ item: paneItem }) => {
+      if (paneItem instanceof PanelDock && !this.deactivating) {
+        this.panel = null
+        atom.config.set('linter-ui-default.showPanel', false)
+      }
+    }))
+    this.subscriptions.add(atom.config.observe('linter-ui-default.showPanel', (showPanel) => {
+      this.showPanelConfig = showPanel
+      this.refresh()
+    }))
+    this.subscriptions.add(atom.workspace.getCenter().observeActivePaneItem(() => {
+      this.showPanelStateMessages = !!this.delegate.filteredMessages.length
+      this.refresh()
+    }))
+    this.activationTimer = window.requestIdleCallback(() => {
+      this.activate()
+    })
   }
-  update(messages: Array<LinterMessage>): void {
-    this.delegate.update(messages)
+  async activate() {
+    if (this.panel) {
+      return
+    }
+    this.panel = new PanelDock(this.delegate)
+    await atom.workspace.open(this.panel, {
+      activatePane: false,
+      activateItem: false,
+      searchAllPanes: true,
+    })
+    this.update()
+    this.refresh()
+  }
+  update(newMessages: ?Array<LinterMessage> = null): void {
+    if (newMessages) {
+      this.messages = newMessages
+    }
+    this.delegate.update(this.messages)
+    this.showPanelStateMessages = !!this.delegate.filteredMessages.length
+    this.refresh()
+  }
+  async refresh() {
+    if (this.panel === null) {
+      if (this.showPanelConfig) {
+        await this.activate()
+      }
+      return
+    }
+    const paneContainer = atom.workspace.paneContainerForItem(this.panel)
+    if (!paneContainer || paneContainer.location !== 'bottom' || paneContainer.getActivePaneItem() !== this.panel) {
+      return
+    }
+    if (
+      (this.showPanelConfig) &&
+      (!this.hidePanelWhenEmpty || this.showPanelStateMessages)
+    ) {
+      paneContainer.show()
+    } else {
+      paneContainer.hide()
+    }
   }
   dispose() {
+    this.deactivating = true
+    if (this.panel) {
+      this.panel.dispose()
+    }
     this.subscriptions.dispose()
+    window.cancelIdleCallback(this.activationTimer)
   }
 }
 

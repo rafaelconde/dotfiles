@@ -13,17 +13,17 @@
 |---|---|---|---|
 | No Color | Boolean | false | Enables/disable color icons. |
 
-## Change Log
-
-[Full Change Log](changelog.md)
-
-### v1.4.3 (2017-03-12)
-
-- Fix alignment in tab bar on Windows for Material UI ([cf25937](https://github.com/wyze/atom-seti-icons/commit/cf25937))
-
 ## Credits
 
 Thank you to [Jesse Weed](//github.com/jesseweed) for making the original Seti UI theme.
+
+## Change Log
+
+> [Full Change Log](changelog.md)
+
+### [v1.5.4](https://github.com/wyze/atom-seti-icons/releases/tag/v1.5.4) (2017-06-17)
+
+* [[`418af126f6`](https://github.com/wyze/atom-seti-icons/commit/418af126f6)] - Fix icons on the preview-pane one-dark theme (#72) (Adam Laycock)
 
 ## License
 

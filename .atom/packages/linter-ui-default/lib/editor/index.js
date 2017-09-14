@@ -21,8 +21,10 @@ class Editor {
   subscriptions: CompositeDisposable;
   cursorPosition: ?Point;
   gutterPosition: boolean;
+  tooltipFollows: string;
   showDecorations: boolean;
   showProviderName: boolean;
+  ignoreTooltipInvocation: boolean;
 
   constructor(textEditor: TextEditor) {
     this.tooltip = null
@@ -31,10 +33,14 @@ class Editor {
     this.messages = new Set()
     this.textEditor = textEditor
     this.subscriptions = new CompositeDisposable()
+    this.ignoreTooltipInvocation = false
 
     this.subscriptions.add(this.emitter)
     this.subscriptions.add(atom.config.observe('linter-ui-default.showTooltip', (showTooltip) => {
       this.showTooltip = showTooltip
+      if (!this.showTooltip && this.tooltip) {
+        this.removeTooltip()
+      }
     }))
     this.subscriptions.add(atom.config.observe('linter-ui-default.showProviderName', (showProviderName) => {
       this.showProviderName = showProviderName
@@ -59,14 +65,43 @@ class Editor {
 
     let tooltipSubscription
     this.subscriptions.add(atom.config.observe('linter-ui-default.tooltipFollows', (tooltipFollows) => {
+      this.tooltipFollows = tooltipFollows
       if (tooltipSubscription) {
         tooltipSubscription.dispose()
       }
-      tooltipSubscription = tooltipFollows === 'Mouse' ? this.listenForMouseMovement() : this.listenForKeyboardMovement()
+      tooltipSubscription = new CompositeDisposable()
+      if (tooltipFollows === 'Mouse' || tooltipFollows === 'Both') {
+        tooltipSubscription.add(this.listenForMouseMovement())
+      }
+      if (tooltipFollows === 'Keyboard' || tooltipFollows === 'Both') {
+        tooltipSubscription.add(this.listenForKeyboardMovement())
+      }
       this.removeTooltip()
     }))
     this.subscriptions.add(new Disposable(function() {
       tooltipSubscription.dispose()
+    }))
+
+    const lastCursorPositions = new WeakMap()
+    this.subscriptions.add(textEditor.onDidChangeCursorPosition(({ cursor, newBufferPosition }) => {
+      const lastBufferPosition = lastCursorPositions.get(cursor)
+      if (!lastBufferPosition || !lastBufferPosition.isEqual(newBufferPosition)) {
+        lastCursorPositions.set(cursor, newBufferPosition)
+        this.ignoreTooltipInvocation = false
+      }
+      if (this.tooltipFollows === 'Mouse') {
+        this.removeTooltip()
+      }
+    }))
+    this.subscriptions.add(textEditor.getBuffer().onDidChangeText(() => {
+      const cursors = textEditor.getCursors()
+      cursors.forEach((cursor) => {
+        lastCursorPositions.set(cursor, cursor.getBufferPosition())
+      })
+      if (this.tooltipFollows !== 'Mouse') {
+        this.ignoreTooltipInvocation = true
+        this.removeTooltip()
+      }
     }))
     this.updateGutter()
     this.listenForCurrentLine()
@@ -78,7 +113,7 @@ class Editor {
       let lastEmpty
       const handlePositionChange = ({ start, end }) => {
         const gutter = this.gutter
-        if (!gutter) return
+        if (!gutter || this.subscriptions.disposed) return
         // We need that Range.fromObject hack below because when we focus index 0 on multi-line selection
         // end.column is the column of the last line but making a range out of two and then accesing
         // the end seems to fix it (black magic?)
@@ -126,7 +161,7 @@ class Editor {
     const editorElement = atom.views.getView(this.textEditor)
 
     return disposableEvent(editorElement, 'mousemove', debounce((event) => {
-      if (!editorElement.component || !hasParent(event.target, 'div.scroll-view')) {
+      if (!editorElement.component || this.subscriptions.disposed || !hasParent(event.target, 'div.scroll-view')) {
         return
       }
       const tooltip = this.tooltip
@@ -141,6 +176,7 @@ class Editor {
       }
 
       this.cursorPosition = getBufferPositionFromMouseEvent(event, this.textEditor, editorElement)
+      this.ignoreTooltipInvocation = false
       if (this.textEditor.largeFileMode) {
         // NOTE: Ignore if file is too large
         this.cursorPosition = null
@@ -156,7 +192,7 @@ class Editor {
     return this.textEditor.onDidChangeCursorPosition(debounce(({ newBufferPosition }) => {
       this.cursorPosition = newBufferPosition
       this.updateTooltip(newBufferPosition)
-    }, 60))
+    }, 16))
   }
   updateGutter() {
     this.removeGutter()
@@ -188,6 +224,9 @@ class Editor {
     }
     this.removeTooltip()
     if (!this.showTooltip) {
+      return
+    }
+    if (this.ignoreTooltipInvocation) {
       return
     }
 

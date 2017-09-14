@@ -1,3 +1,8 @@
+## 2.2.0
+
+* `linter:debug` overhaul with more debug information
+* Add `linterName` support to messages API v2 (Thanks @hansonw from Facebook)
+
 ## 2.1.4
 
 * Hotfix release for a regression introduced in last version (sorry everyone)

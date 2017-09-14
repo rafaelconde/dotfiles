@@ -10,18 +10,16 @@ export class SignalElement extends HTMLElement {
   activatedLast: ?number;
   deactivateTimer: ?number;
 
-  // $FlowIgnore: Flow has invalid typing of createdCallback
   createdCallback() {
     this.update([], [])
     this.classList.add('inline-block')
-    this.classList.add('loading-spinner-tiny')
   }
   update(titles: Array<string>, history: Array<{ title: string, duration: string }>) {
     this.setBusy(!!titles.length)
     const tooltipMessage = []
     if (history.length) {
       tooltipMessage.push('<strong>History:</strong>', history.map(function(item) {
-        return `${escape(item.title)} ( duration: ${item.duration} )`
+        return `${escape(item.title)} (${item.duration})`
       }).join('<br>'))
     }
     if (titles.length) {

@@ -2,40 +2,40 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
+        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
-        "spec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
+        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
+        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/apm-install-dir-116104-7532-2e8h5l"
+      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117415-4781-1rm5u5e.qgjlymbo6r"
     ]
   ],
-  "_from": "../d-116104-7532-1ad5nj/package.tgz",
-  "_id": "file-type-icons@1.3.3",
+  "_from": "../d-117415-4781-10459ht.adrxk49529/package.tgz",
+  "_id": "file-type-icons@1.3.4",
   "_inCache": true,
   "_installable": true,
   "_location": "/file-type-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
+    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
-    "spec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
+    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
+    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-116104-7532-1ad5nj/package.tgz",
-  "_shasum": "b300928db425f81e119989f4796ce5ef93cf97f0",
+  "_resolved": "file:../d-117415-4781-10459ht.adrxk49529/package.tgz",
+  "_shasum": "6c62e9c4a407fe30f0f9ef89c860307f8e5d30dc",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-116104-7532-1ad5nj/package.tgz",
-  "_where": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/apm-install-dir-116104-7532-2e8h5l",
+  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117415-4781-10459ht.adrxk49529/package.tgz",
+  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117415-4781-1rm5u5e.qgjlymbo6r",
   "author": {
     "name": "Lee Dohm",
     "email": "lee@lee-dohm.com"
@@ -66,5 +66,5 @@
     "type": "git",
     "url": "git+https://github.com/lee-dohm/file-type-icons.git"
   },
-  "version": "1.3.3"
+  "version": "1.3.4"
 }

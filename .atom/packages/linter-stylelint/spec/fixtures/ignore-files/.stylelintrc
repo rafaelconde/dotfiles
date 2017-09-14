@@ -1,4 +1,8 @@
 {
-  "ignoreFiles": ["styles.css"],
-  "rules": { "block-no-empty": true }
+  "ignoreFiles": [
+    "styles.css"
+  ],
+  "rules": {
+    "block-no-empty": true
+  }
 }

@@ -1,0 +1,72 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+        "type": "local"
+      },
+      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117814-16775-gw2yzm.y3t8bsm7vi"
+    ]
+  ],
+  "_from": "../d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+  "_id": "front-icons@1.14.0",
+  "_inCache": true,
+  "_location": "/front-icons",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+    "type": "local"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "file:../d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+  "_shasum": "cfb8357f79dd349e945b1d32d9a39583911b9eda",
+  "_shrinkwrap": null,
+  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-16775-15dqntr.amsh4wvcxr/package.tgz",
+  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117814-16775-gw2yzm.y3t8bsm7vi",
+  "bugs": {
+    "url": "https://github.com/igorskuhar/front-icons/issues"
+  },
+  "dependencies": {},
+  "description": "A set of hand-crafted, pixel-perfect front-end icons.",
+  "devDependencies": {},
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "homepage": "https://github.com/igorskuhar/front-icons#readme",
+  "keywords": [
+    "front",
+    "icons"
+  ],
+  "license": "MIT",
+  "name": "front-icons",
+  "optionalDependencies": {},
+  "readme": "# Front Icons\nAn [Atom package](https://atom.io/packages/front-icons) adding hand-crafted, pixel-perfect icons next to the filenames (tree, tabs, fuzzy finder) based on the extension.\n\n## How to install\n```\napm install front-icons\n```\nor search for the `front-icons` package in Settings view.\n## Preview\n<img src=\"https://raw.githubusercontent.com/igorskuhar/front-icons/master/preview.png\" width=\"210\">\n\n## Changelog\nSee [CHANGELOG](https://github.com/igorskuhar/front-icons/blob/master/CHANGELOG.md).\n\n## License\n[MIT](https://github.com/igorskuhar/front-icons/blob/master/LICENSE.md)\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/igorskuhar/front-icons.git"
+  },
+  "version": "1.14.0",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
+}

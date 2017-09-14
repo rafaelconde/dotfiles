@@ -3,7 +3,7 @@
 import { CompositeDisposable, Disposable } from 'atom'
 
 import Element from './element'
-import { $file } from '../helpers'
+import { $file, getActiveTextEditor } from '../helpers'
 import type { LinterMessage } from '../types'
 
 class StatusBar {
@@ -11,7 +11,7 @@ class StatusBar {
   messages: Array<LinterMessage>;
   subscriptions: CompositeDisposable;
   statusBarRepresents: 'Entire Project' | 'Current File';
-  statusBarClickBehavior: 'Toggle Panel' | 'Jump to next issue';
+  statusBarClickBehavior: 'Toggle Panel' | 'Jump to next issue' | 'Toggle Status Bar Scope';
 
   constructor() {
     this.element = new Element()
@@ -36,7 +36,7 @@ class StatusBar {
     this.subscriptions.add(atom.config.observe('linter-ui-default.showStatusBar', (showStatusBar) => {
       this.element.setVisibility('config', showStatusBar)
     }))
-    this.subscriptions.add(atom.workspace.observeActivePaneItem((paneItem) => {
+    this.subscriptions.add(atom.workspace.getCenter().observeActivePaneItem((paneItem) => {
       const isTextEditor = atom.workspace.isTextEditor(paneItem)
       this.element.setVisibility('pane', isTextEditor)
       if (isTextEditor && this.statusBarRepresents === 'Current File') {
@@ -48,6 +48,8 @@ class StatusBar {
       const workspaceView = atom.views.getView(atom.workspace)
       if (this.statusBarClickBehavior === 'Toggle Panel') {
         atom.commands.dispatch(workspaceView, 'linter-ui-default:toggle-panel')
+      } else if (this.statusBarClickBehavior === 'Toggle Status Bar Scope') {
+        atom.config.set('linter-ui-default.statusBarRepresents', this.statusBarRepresents === 'Entire Project' ? 'Current File' : 'Entire Project')
       } else {
         const postfix = this.statusBarRepresents === 'Current File' ? '-in-current-file' : ''
         atom.commands.dispatch(workspaceView, `linter-ui-default:next-${type}${postfix}`)
@@ -62,7 +64,7 @@ class StatusBar {
     }
 
     const count = { error: 0, warning: 0, info: 0 }
-    const currentTextEditor = atom.workspace.getActiveTextEditor()
+    const currentTextEditor = getActiveTextEditor()
     const currentPath = (currentTextEditor && currentTextEditor.getPath()) || NaN
     // NOTE: ^ Setting default to NaN so it won't match empty file paths in messages
 

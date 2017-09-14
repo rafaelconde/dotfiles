@@ -10,19 +10,23 @@
  */
 
 atom-workspace {
-  font-family: "SFMono-Regular";
+
 }
 
 atom-panel-container,
 atom-pane-container,
 .tree-view,
+.title-bar,
 .tab-bar,
-.tab-bar .tab .title {
+.tab-bar .tab,
+.tab-bar .tab .title,
+.tab-bar .tab.active,
+.tab-bar .tab.active[data-type$="Editor"],
+.settings-view .panels,
+.settings-view .config-menu,
+atom-dock .tab-bar .tab.active {
   background-color: #010407;
-}
-
-.title-bar {
-  background-color: #22252a;
+  font-family: SFProText-Regular;
 }
 
 .line-number {

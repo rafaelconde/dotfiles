@@ -79,6 +79,7 @@
   }
 
   // Lock files
+  span.icon[data-name='package-lock.json']:before,
   span.icon[data-name$='.lock']:before {
     .lock-icon;
   }
@@ -232,7 +233,7 @@
   span.icon[data-name='Gulpfile.coffee']:before,
   span.icon[data-name='gulpfile.coffee']:before,
   span.icon[data-name='Gulpfile.js']:before,
-  span.icon[data-name='gulpfile.babel.js']:before, 
+  span.icon[data-name='gulpfile.babel.js']:before,
   span.icon[data-name='gulpfile.js']:before {
     .gulp-icon;
   }
@@ -248,10 +249,18 @@
     .go-icon;
   }
 
+  // Haskell
+  span.icon:not([data-name$='Spec.hs'])[data-name$='.hs']:before,
+  span.icon:not([data-name$='Spec.lhs'])[data-name$='.lhs']:before {
+    .haskell-icon;
+  }
+
   // Specs
   span.icon[data-name$='spec.rb']:before,
   span.icon[data-name$='test.rb']:before,
   span.icon[data-name$='-spec.coffee']:before,
+  span.icon[data-name$='Spec.hs']:before,
+  span.icon[data-name$='Spec.lhs']:before,
   span.icon[data-name$='spec.exs']:before,
   span.icon[data-name$='test.exs']:before {
     .test-file-icon;

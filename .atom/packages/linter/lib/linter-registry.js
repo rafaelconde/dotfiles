@@ -59,7 +59,7 @@ class LinterRegistry {
     linter[$version] = version
     this.linters.add(linter)
   }
-  getLinters(): Array<Linter> {
+  getProviders(): Array<Linter> {
     return Array.from(this.linters)
   }
   deleteLinter(linter: Linter) {
@@ -132,7 +132,7 @@ class LinterRegistry {
       }, (error) => {
         this.emitter.emit('did-finish-linting', { number, linter, filePath: statusFilePath })
         atom.notifications.addError(`[Linter] Error running ${linter.name}`, {
-          detail: 'See Console for more info. (Open View -> Developer -> Toogle Developer Tools)',
+          detail: 'See Console for more info. (Open View -> Developer -> Toggle Developer Tools)',
         })
         console.error(`[Linter] Error running ${linter.name}`, error)
       }))

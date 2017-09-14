@@ -2,40 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
+        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
-        "spec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
+        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
+        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/apm-install-dir-117214-3690-1karz2i"
+      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117519-18430-1s1linq.nmy722o6r"
     ]
   ],
-  "_from": "../d-117214-3690-vik878/package.tgz",
-  "_id": "seti-icons@1.4.3",
+  "_from": "../d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
+  "_id": "seti-icons@1.5.4",
   "_inCache": true,
-  "_installable": true,
   "_location": "/seti-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
+    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
-    "spec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
+    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
+    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117214-3690-vik878/package.tgz",
-  "_shasum": "3d2afca6d4e755c5a9884e0a786c3e62728ce643",
+  "_resolved": "file:../d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
+  "_shasum": "a10ad367e8e8689e2f1b3ff8dc4b4de134321c52",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/d-117214-3690-vik878/package.tgz",
-  "_where": "/private/var/folders/81/d9sc8lqn4k5cjc2r7b5hp7c40000gn/T/apm-install-dir-117214-3690-1karz2i",
+  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117519-18430-5hzpe7.bolvm42t9/package.tgz",
+  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117519-18430-1s1linq.nmy722o6r",
   "author": {
     "name": "Neil Kistner",
     "email": "neil.kistner@gmail.com",
@@ -54,7 +53,7 @@
   "dependencies": {},
   "description": "The awesome icons provided by Seti UI theme.",
   "devDependencies": {
-    "conventional-changelog-cli": "^1.2.0"
+    "write-changelog": "^1.1.0"
   },
   "engines": {
     "atom": ">=1.4.0 <2.0.0"
@@ -68,14 +67,27 @@
   "main": "lib/index",
   "name": "seti-icons",
   "optionalDependencies": {},
-  "readme": "# Seti Icons\n\n[![apm][apm-image]][apm-url]\n[![apmi][apmi-image]][apmi-url]\n\n> The awesome icons provided by [Seti UI](https://github.com/jesseweed/seti-ui) theme.\n\n![Seti UI](https://github.com/jesseweed/seti-ui/raw/master/screenshot-icons.png)\n\n## Settings\n\n| Name | Type | Default | Description |\n|---|---|---|---|\n| No Color | Boolean | false | Enables/disable color icons. |\n\n## Change Log\n\n[Full Change Log](changelog.md)\n\n### v1.4.3 (2017-03-12)\n\n- Fix alignment in tab bar on Windows for Material UI ([cf25937](https://github.com/wyze/atom-seti-icons/commit/cf25937))\n\n## Credits\n\nThank you to [Jesse Weed](//github.com/jesseweed) for making the original Seti UI theme.\n\n## License\n\nMIT © [Neil Kistner](https://neilkistner.com)\n\n[apm-image]: https://img.shields.io/apm/v/seti-icons.svg?style=flat-square\n[apm-url]: https://atom.io/packages/seti-icons\n\n[apmi-image]: https://img.shields.io/apm/dm/seti-icons.svg?style=flat-square\n[apmi-url]: https://atom.io/packages/seti-icons\n",
+  "readme": "# Seti Icons\n\n[![apm][apm-image]][apm-url]\n[![apmi][apmi-image]][apmi-url]\n\n> The awesome icons provided by [Seti UI](https://github.com/jesseweed/seti-ui) theme.\n\n![Seti UI](https://github.com/jesseweed/seti-ui/raw/master/screenshot-icons.png)\n\n## Settings\n\n| Name | Type | Default | Description |\n|---|---|---|---|\n| No Color | Boolean | false | Enables/disable color icons. |\n\n## Credits\n\nThank you to [Jesse Weed](//github.com/jesseweed) for making the original Seti UI theme.\n\n## Change Log\n\n> [Full Change Log](changelog.md)\n\n### [v1.5.4](https://github.com/wyze/atom-seti-icons/releases/tag/v1.5.4) (2017-06-17)\n\n* [[`418af126f6`](https://github.com/wyze/atom-seti-icons/commit/418af126f6)] - Fix icons on the preview-pane one-dark theme (#72) (Adam Laycock)\n\n## License\n\nMIT © [Neil Kistner](https://neilkistner.com)\n\n[apm-image]: https://img.shields.io/apm/v/seti-icons.svg?style=flat-square\n[apm-url]: https://atom.io/packages/seti-icons\n\n[apmi-image]: https://img.shields.io/apm/dm/seti-icons.svg?style=flat-square\n[apmi-url]: https://atom.io/packages/seti-icons\n",
   "readmeFilename": "readme.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/wyze/atom-seti-icons.git"
   },
   "scripts": {
-    "changelog": "conventional-changelog -i changelog.md -s -u"
+    "version": "write-changelog"
   },
-  "version": "1.4.3"
+  "version": "1.5.4",
+  "_atomModuleCache": {
+    "version": 1,
+    "dependencies": [],
+    "extensions": {
+      ".js": [
+        "lib/index.js"
+      ],
+      ".json": [
+        "package.json"
+      ]
+    },
+    "folders": []
+  }
 }
