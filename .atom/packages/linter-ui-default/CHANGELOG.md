@@ -1,3 +1,28 @@
+# Changelog
+
+## 1.7.1
+
+* Restore old hiding behavior
+
+## 1.7.0
+
+* Add a max-width to linter toolip
+* Re-add `alwaysTakeMinimumSpace` config which works with Atom Docks!
+* Attempt to fix `Cannot decorate a destroyed marker` errors (Fix by @sompylasar)
+
+## 1.6.11
+
+* Upgrade `marked` version
+* Add `Fix` button to tooltips
+
+## 1.6.10
+
+* Fix alignment of icons for Atom v1.20.0+
+
+## 1.6.9
+
+* Change inline highlighting style from `highlight` to `text`
+
 ## 1.6.7
 
 * Was missing check in another place

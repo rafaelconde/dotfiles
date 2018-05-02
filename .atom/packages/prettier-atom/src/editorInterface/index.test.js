@@ -1,7 +1,14 @@
 jest.mock('../atomInterface');
 
 const buildMockTextEditor = require('../../tests/mocks/textEditor');
-const { getCssScopes, getTypescriptScopes, getJsonScopes, getGraphQlScopes } = require('../atomInterface');
+const {
+  getCssScopes,
+  getTypescriptScopes,
+  getJsonScopes,
+  getGraphQlScopes,
+  getMarkdownScopes,
+  getVueScopes,
+} = require('../atomInterface');
 const {
   getBufferRange,
   getCurrentScope,
@@ -10,16 +17,24 @@ const {
   isCurrentScopeTypescriptScope,
   isCurrentScopeJsonScope,
   isCurrentScopeGraphQlScope,
+  isCurrentScopeMarkdownScope,
+  isCurrentScopeVueScope,
   getCurrentFilePath,
 } = require('./index');
 
 describe('getBufferRange()', () => {
   it('gets the buffer range from the editor', () => {
-    const editor = buildMockTextEditor();
+    const fakeBufferRange = {
+      start: { row: 0, column: 0 },
+      end: { row: 0, column: 1 },
+    };
+    const editor = buildMockTextEditor({
+      getBuffer: () => ({ getRange: () => fakeBufferRange }),
+    });
 
     const actual = getBufferRange(editor);
 
-    expect(actual).toEqual('FAKE BUFFER RANGE');
+    expect(actual).toEqual(fakeBufferRange);
   });
 });
 
@@ -141,9 +156,53 @@ describe('isCurrentScopeGraphQlScope()', () => {
   });
 });
 
+describe('isCurrentScopeMarkdownScope()', () => {
+  it('returns true if the current scope is a Markdown scope type', () => {
+    const scopeName = 'meta.type.interface.markdown';
+    const editor = buildMockTextEditor({ getGrammar: () => ({ scopeName }) });
+    getMarkdownScopes.mockImplementation(() => ['meta.type.interface.markdown']);
+
+    const actual = isCurrentScopeMarkdownScope(editor);
+
+    expect(actual).toBe(true);
+  });
+
+  it('returns false if the current scope is not a Markdown scope type', () => {
+    const scopeName = 'src.css';
+    const editor = buildMockTextEditor({ getGrammar: () => ({ scopeName }) });
+    getMarkdownScopes.mockImplementation(() => ['meta.type.interface.markdown']);
+
+    const actual = isCurrentScopeMarkdownScope(editor);
+
+    expect(actual).toBe(false);
+  });
+});
+
+describe('isCurrentScopeVueScope()', () => {
+  it('returns true if the current scope is a Vue SFC scope type', () => {
+    const scopeName = 'text.html.vue';
+    const editor = buildMockTextEditor({ getGrammar: () => ({ scopeName }) });
+    getVueScopes.mockImplementation(() => ['text.html.vue']);
+
+    const actual = isCurrentScopeVueScope(editor);
+
+    expect(actual).toBe(true);
+  });
+
+  it('returns false if the current scope is not a Vue SFC scope type', () => {
+    const scopeName = 'text.html.basic';
+    const editor = buildMockTextEditor({ getGrammar: () => ({ scopeName }) });
+    getVueScopes.mockImplementation(() => ['text.html.vue']);
+
+    const actual = isCurrentScopeVueScope(editor);
+
+    expect(actual).toBe(false);
+  });
+});
+
 describe('getCurrentFilePath()', () => {
   it('returns the current file path if there is one', () => {
-    const file = { path: 'xyz.js' };
+    const file = { path: 'xyz.js', getPath: () => 'xyz.js' };
     const editor = buildMockTextEditor({ buffer: { file } });
 
     const actual = getCurrentFilePath(editor);
@@ -158,5 +217,14 @@ describe('getCurrentFilePath()', () => {
     const actual = getCurrentFilePath(editor);
 
     expect(actual).toBeUndefined();
+  });
+
+  it('uses the getPath method over reading the path directly from the buffer', () => {
+    const file = { path: 'wrongPath.js', getPath: () => 'rightPath.js' };
+    const editor = buildMockTextEditor({ buffer: { file } });
+
+    const actual = getCurrentFilePath(editor);
+
+    expect(actual).toEqual('rightPath.js');
   });
 });

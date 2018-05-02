@@ -13,6 +13,7 @@
 
 #linter-tooltip {
   margin-top: 3px;
+  max-width: 64em;
 
   .message-with-severity(@color) {
     color: @text-color;
@@ -91,27 +92,46 @@ atom-text-editor.editor .linter-row {
   align-items: center;
   justify-content: center;
 }
+.linter-ui-default-fix-btn {
+  color: @ui-site-color-1;
+  background-color: @button-background-color;
+  border-color: @button-border-color;
+  border-radius: @component-border-radius;
+  margin: 0 10px;
+  padding: 5px 10px;
+  line-height: 100%;
+  font-size: 12px;
+  vertical-align: middle;
+}
 
-atom-text-editor.editor .linter-highlight, .linter-highlight {
+.linter-gutter {
   .error_type(@color, @priority) {
-    .region {
-      .wavy_border(@color);
-    }
-    &.linter-gutter {
-      color: @color;
-      z-index: @priority;
-    }
+    color: @color;
+    z-index: @priority;
   }
-  &.linter-info {
+  &.linter-gutter-info {
     .error_type(@background-color-info, -1);
   }
-  &.linter-warning {
+  &.linter-gutter-warning {
     .error_type(@background-color-warning, 0);
   }
-  &.linter-error {
+  &.linter-gutter-error {
     .error_type(@background-color-error, 1);
   }
 }
+
+atom-text-editor.editor .linter-highlight, .linter-highlight {
+  &.linter-info {
+    .wavy_border(@background-color-info);
+  }
+  &.linter-warning {
+    .wavy_border(@background-color-warning);
+  }
+  &.linter-error {
+    .wavy_border(@background-color-error);
+  }
+}
+
 .tree-view {
   span.name {
     position: relative;
@@ -144,9 +164,8 @@ atom-text-editor.editor .linter-highlight, .linter-highlight {
   a {
     padding: 2px;
   }
-  span.icon::before {
+  a::before {
     font-size: 12px;
-    vertical-align: middle;
   }
   &.hide-config, &.hide-pane {
     display: none;

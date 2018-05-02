@@ -24,9 +24,9 @@ const lazyFormat = () => {
 };
 
 // HACK: lazy load most of the code we need for performance
-const lazyFormatOnSave = (editor) => {
+const lazyFormatOnSave = async editor => {
   if (!formatOnSave) formatOnSave = require('./formatOnSave'); // eslint-disable-line global-require
-  if (editor) formatOnSave(editor);
+  if (editor) await formatOnSave(editor);
 };
 
 // HACK: lazy load most of the code we need for performance
@@ -49,7 +49,7 @@ const lazyDisplayDebugInfo = () => {
 
 const lazyToggleFormatOnSave = () => {
   if (!toggleFormatOnSave) {
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line global-require,prefer-destructuring
     toggleFormatOnSave = require('./atomInterface').toggleFormatOnSave;
   }
   toggleFormatOnSave();
@@ -74,8 +74,8 @@ const attachStatusTile = () => {
       atom.workspace.onDidChangeActiveTextEditor
         ? atom.workspace.onDidChangeActiveTextEditor(editor => updateStatusTileScope(tileElement, editor))
         : atom.workspace.onDidChangeActivePaneItem(() =>
-          updateStatusTileScope(tileElement, atom.workspace.getActiveTextEditor()),
-        ),
+            updateStatusTileScope(tileElement, atom.workspace.getActiveTextEditor()),
+          ),
     );
   }
 };
@@ -135,7 +135,7 @@ const deactivate = () => {
   detachStatusTile();
 };
 
-const consumeStatusBar = (statusBar) => {
+const consumeStatusBar = statusBar => {
   statusBarHandler = statusBar;
 
   const showInStatusBar = atom.config.get('prettier-atom.formatOnSaveOptions.showInStatusBar');
@@ -144,14 +144,14 @@ const consumeStatusBar = (statusBar) => {
   }
 };
 
-const consumeIndie = (registerIndie) => {
+const consumeIndie = registerIndie => {
   const linter = registerIndie({ name: 'Prettier' });
-  subscriptions.add(linter);
   linterInterface.set(linter);
+  subscriptions.add(linter);
 
   // Setting and clearing messages per filePath
   subscriptions.add(
-    atom.workspace.observeTextEditors((textEditor) => {
+    atom.workspace.observeTextEditors(textEditor => {
       const editorPath = textEditor.getPath();
       if (!editorPath) {
         return;
@@ -160,7 +160,6 @@ const consumeIndie = (registerIndie) => {
       const subscription = textEditor.onDidDestroy(() => {
         subscriptions.remove(subscription);
         linter.setMessages(editorPath, []);
-        linterInterface.set(null);
       });
       subscriptions.add(subscription);
     }),

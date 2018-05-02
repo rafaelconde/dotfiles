@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
+        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
-        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
+        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
+        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117814-18003-1r031q0.b28fpkqpvi"
+      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-118217-12784-cc8sgs.5c6wxko6r"
     ]
   ],
-  "_from": "../d-117814-18003-17awrif.1ixiozuxr/package.tgz",
-  "_id": "custom-app-icon@0.2.3",
+  "_from": "../d-118217-12784-14cg198.aw83q5mi/package.tgz",
+  "_id": "custom-app-icon@0.2.4",
   "_inCache": true,
   "_location": "/custom-app-icon",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
+    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
-    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
+    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
+    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-117814-18003-17awrif.1ixiozuxr/package.tgz",
-  "_shasum": "0e57633c828fdd3bdbdbbfdc4d8a4e6575a4cc20",
+  "_resolved": "file:../d-118217-12784-14cg198.aw83q5mi/package.tgz",
+  "_shasum": "088838e9fd55553e7c974153594b016f8257e811",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-117814-18003-17awrif.1ixiozuxr/package.tgz",
-  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-117814-18003-1r031q0.b28fpkqpvi",
+  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-118217-12784-14cg198.aw83q5mi/package.tgz",
+  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-118217-12784-cc8sgs.5c6wxko6r",
   "author": {
     "name": "Daniel Bayley",
     "email": "daniel.bayley@me.com",
@@ -70,18 +70,5 @@
     "type": "git",
     "url": "git+https://github.com/danielbayley/atom-custom-app-icon.git"
   },
-  "version": "0.2.3",
-  "_atomModuleCache": {
-    "version": 1,
-    "dependencies": [],
-    "extensions": {
-      ".coffee": [
-        "index.coffee"
-      ],
-      ".json": [
-        "package.json"
-      ]
-    },
-    "folders": []
-  }
+  "version": "0.2.4"
 }

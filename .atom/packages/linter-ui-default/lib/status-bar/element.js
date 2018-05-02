@@ -6,13 +6,13 @@ import type { Disposable } from 'atom'
 import * as Helpers from './helpers'
 
 class Element {
-  item: HTMLElement;
-  itemErrors: HTMLElement;
-  itemWarnings: HTMLElement;
-  itemInfos: HTMLElement;
+  item: HTMLElement
+  itemErrors: HTMLElement
+  itemWarnings: HTMLElement
+  itemInfos: HTMLElement
 
-  emitter: Emitter;
-  subscriptions: CompositeDisposable;
+  emitter: Emitter
+  subscriptions: CompositeDisposable
 
   constructor() {
     this.item = document.createElement('div')
@@ -48,9 +48,9 @@ class Element {
     }
   }
   update(countErrors: number, countWarnings: number, countInfos: number): void {
-    this.itemErrors.childNodes[1].textContent = String(countErrors)
-    this.itemWarnings.childNodes[1].textContent = String(countWarnings)
-    this.itemInfos.childNodes[1].textContent = String(countInfos)
+    this.itemErrors.childNodes[0].textContent = String(countErrors)
+    this.itemWarnings.childNodes[0].textContent = String(countWarnings)
+    this.itemInfos.childNodes[0].textContent = String(countInfos)
 
     if (countErrors) {
       this.itemErrors.classList.add('text-error')
@@ -70,7 +70,7 @@ class Element {
       this.itemInfos.classList.remove('text-info')
     }
   }
-  onDidClick(callback: ((type: string) => void)): Disposable {
+  onDidClick(callback: (type: string) => void): Disposable {
     return this.emitter.on('click', callback)
   }
   dispose() {

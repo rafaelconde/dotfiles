@@ -1,5 +1,15 @@
 'use strict';
 
+var _regenerator = require('babel-runtime/regenerator');
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
+
+var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var config = require('./config-schema.json');
 // eslint-disable-next-line import/no-extraneous-dependencies, import/no-unresolved
 
@@ -34,10 +44,34 @@ var lazyFormat = function lazyFormat() {
 };
 
 // HACK: lazy load most of the code we need for performance
-var lazyFormatOnSave = function lazyFormatOnSave(editor) {
-  if (!formatOnSave) formatOnSave = require('./formatOnSave'); // eslint-disable-line global-require
-  if (editor) formatOnSave(editor);
-};
+var lazyFormatOnSave = function () {
+  var _ref = (0, _asyncToGenerator3.default)(_regenerator2.default.mark(function _callee(editor) {
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            if (!formatOnSave) formatOnSave = require('./formatOnSave'); // eslint-disable-line global-require
+
+            if (!editor) {
+              _context.next = 4;
+              break;
+            }
+
+            _context.next = 4;
+            return formatOnSave(editor);
+
+          case 4:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, undefined);
+  }));
+
+  return function lazyFormatOnSave(_x) {
+    return _ref.apply(this, arguments);
+  };
+}();
 
 // HACK: lazy load most of the code we need for performance
 var lazyWarnAboutLinterEslintFixOnSave = function lazyWarnAboutLinterEslintFixOnSave() {
@@ -59,7 +93,7 @@ var lazyDisplayDebugInfo = function lazyDisplayDebugInfo() {
 
 var lazyToggleFormatOnSave = function lazyToggleFormatOnSave() {
   if (!toggleFormatOnSave) {
-    // eslint-disable-next-line global-require
+    // eslint-disable-next-line global-require,prefer-destructuring
     toggleFormatOnSave = require('./atomInterface').toggleFormatOnSave;
   }
   toggleFormatOnSave();
@@ -152,8 +186,8 @@ var consumeStatusBar = function consumeStatusBar(statusBar) {
 
 var consumeIndie = function consumeIndie(registerIndie) {
   var linter = registerIndie({ name: 'Prettier' });
-  subscriptions.add(linter);
   linterInterface.set(linter);
+  subscriptions.add(linter);
 
   // Setting and clearing messages per filePath
   subscriptions.add(atom.workspace.observeTextEditors(function (textEditor) {
@@ -165,7 +199,6 @@ var consumeIndie = function consumeIndie(registerIndie) {
     var subscription = textEditor.onDidDestroy(function () {
       subscriptions.remove(subscription);
       linter.setMessages(editorPath, []);
-      linterInterface.set(null);
     });
     subscriptions.add(subscription);
   }));

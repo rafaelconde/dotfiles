@@ -1,3 +1,111 @@
+### 2.85.0
+  - Add support for numeric _ seperator.
+  - Add support for null coalesce operator ??
+  - Add scope to new constructor names 
+  
+### 2.84.0
+  - Add PR #481
+  
+### 2.83.4
+  - Remove PR #473 which causes Atom to ignore the grammar at startup.
+  
+### 2.83.3
+  - Parse <T>( as flowtype. Before, the paren had to be terminated by a new line. Relax this condition. [#480](https://github.com/gandm/language-babel/issues/480)
+    
+### 2.83.2
+  - Change grammar to correctly support function braces in the Allman style. [#478](https://github.com/gandm/language-babel/issues/478)
+
+### 2.83.1
+  - Mistakenly removed the line added by the PR in 2.83.0!
+
+### 2.83.0
+  - PR from @Aerijo that adds an injection selector allowing this grammar to be used within language-gfm.
+  - Fix arrow functions with a flow return type having a negative integer being parsed correctly. [#473](https://github.com/gandm/language-babel/issues/473)
+
+### 2.82.0
+  - Add support for GraphQL empty types - [#471](https://github.com/gandm/language-babel/issues/471)
+  - Add support for Apollo GraphQL `extend type` - [#472](https://github.com/gandm/language-babel/issues/472)
+  - Check for .eslintrc as a file - Thanks @SpainTrain for the [PR#470](https://github.com/gandm/language-babel/issues/470)
+  - Add guard check for Atom not passing back a valid TextEditor id - [#468](https://github.com/gandm/language-babel/issues/468)
+
+### 2.81.1
+  - Fix names of source file and map file relative URL's when transpiling separate Babel map files. Issue [#462](https://github.com/gandm/language-babel/issues/462)
+
+### 2.81.0
+  - Lazy load some requires - Thanks @hansonw for the [PR#459](https://github.com/gandm/language-babel/issues/459)
+
+### 2.80.3
+  - Fix regression introduced in 2.80.2
+
+### 2.80.2
+  - Fix [#458](https://github.com/gandm/language-babel/issues/458)
+
+### 2.80.1
+  - Fix for [#456](https://github.com/gandm/language-babel/issues/456)
+  - Allow normal CSS auto-completions to coexist with Emmet CSS completions.
+
+### 2.80.0
+  - Modify path search for babel transpiler.
+  - Add support for emmet to complete styled-components under option setting.
+
+### 2.79.0
+  - Add scope for BigInt number notation - 1n
+  - Support strings inside balanced paren regex - [#428](https://github.com/gandm/language-babel/issues/428)
+
+### 2.78.0
+  - Support for Babel tranpiler when project is inside a Yarn workspace.
+  - Detect @babel/core and babel-core module types.
+  - Fixes [#450](https://github.com/gandm/language-babel/issues/450), [#453](https://github.com/gandm/language-babel/issues/453).
+
+### 2.77.3
+  - Fix balanced generic regex from terminating on =>. Fixes #449
+
+### 2.77.2
+  - Small regex change.
+
+### 2.77.1
+  - 2.77.0 introduced some bug/regressions in the grammar. This attempts to fix those.
+
+### 2.77.0
+  - Support TC39 stage 3 [async iteration using `for await`](https://github.com/tc39/proposal-async-iteration). [Issue #441](https://github.com/gandm/language-babel/issues/441)
+  - Change scopename for Flow declare class names that use generics - e.g. `class Array<T>`. [Issue #443](https://github.com/gandm/language-babel/issues/443)
+  - Fix Flow declarations where parens were incorrectly treated as function definitions. [Issue #444](https://github.com/gandm/language-babel/issues/444)
+  - Fix incorrect handling of Flow array definitions and destructuring.
+  - Fix incorrect scopes applied to Flow generics that were lowercase - e.g. `Class<this>`
+  - Ensure that the static keyword wasn't parsed as a method name.  
+
+### 2.76.4
+  - Fix flowtype parsing issues #438, #439, #440
+
+### 2.76.3
+  - Constant var regex not failing on lowercase chars; allow intervening $ chars. Issue #437
+
+### 2.76.2
+  - Fix some issues with flowtype declare statements. Issue #435
+  - Handle async arrow functions earlier to allow for multiline arguments. Issue #434
+
+### 2.76.1
+  - Fix lack of support with JSX fragment as outer wrapper!!
+
+### 2.76.0
+  - Add support for JSX fragments.
+
+### 2.75.2
+  - Allow Babel V7 to use .babelrc.js files. Thanks to Robert Rossmann for [PR](https://github.com/gandm/language-babel/pull/427)
+  - Fix duplicates appearing in auto-complete for JSX. [Issue 430](https://github.com/gandm/language-babel/issues/430)
+
+### 2.75.1
+  - Change styled.attrs parsing to allow for no template string.[Issue 424](https://github.com/gandm/language-babel/issues/424)
+
+### 2.75.0
+ - Add new `.languagebabel` option `keepFileExtension`.
+
+### 2.74.4
+  - Fix grammar: class field property returning arrow func which returns arrow func. [Issue 421](https://github.com/gandm/language-babel/issues/421)
+
+### 2.74.3
+  - Await keyword following spread was incorrectly scoped. [Issue 417](https://github.com/gandm/language-babel/issues/417)
+
 ### 2.74.2
   - Flowtype type assignments were sometimes parsed as variables.
   - Add some global attributes to JSX auto-complete. Thanks @rgbkrk and @mpacer [PR 411](https://github.com/gandm/language-babel/pull/411).

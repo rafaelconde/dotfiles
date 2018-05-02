@@ -22,6 +22,7 @@ module.exports =
   filterSuggestions: true
   inclusionPriority: 10000
   excludeLowerPriority: false
+  suggestionPriority: 90
 
   getSuggestions: (request) ->
     completions = null

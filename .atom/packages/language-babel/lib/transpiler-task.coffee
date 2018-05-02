@@ -1,18 +1,35 @@
+fs = require 'fs-plus'
+path = require 'path'
+
+# recurse directories to root looking for babel core
+# or provide our own
+requireBabelCore = (dir) ->
+  if dir != path.dirname(dir)
+    if babelCore = resolveBabelCore(dir) then return babelCore
+    else return requireBabelCore(path.dirname(dir))
+  return resolveBabelCore('..') # return language-babel's copy of babel-core
+
+# resolve a babel core in the dir
+resolveBabelCore = (dir) ->
+  try
+    projectBabelCore = path.normalize( path.join( dir, '/node_modules/@babel/core'))
+    babel = require projectBabelCore
+  catch
+    try
+      projectBabelCore = path.normalize( path.join( dir, '/node_modules/babel-core'))
+      babel = require projectBabelCore
+    catch
+      return false
+  'babel': babel
+  'projectBabelCore': projectBabelCore
+
 # language-babel transpiles run here.
 # This runs as a separate task so that transpiles can have their own environment.
 module.exports = (projectPath) ->
-  path = require 'path'
   callback = @async() #async task
   process.chdir(projectPath)
-  # require babel-core package for this project
-  projectBabelCore = path.normalize( path.join( projectPath, '/node_modules/babel-core'))
-  try
-    babel = require projectBabelCore
-  catch
-    # babel core version not found revert to the global
-    projectBabelCore = '../node_modules/babel-core'
-    babel = require projectBabelCore
 
+  { babel, projectBabelCore } = requireBabelCore(projectPath)
   babelCoreUsed = "Using babel-core at\n#{require.resolve projectBabelCore}"
 
   process.on 'message', (mObj) ->

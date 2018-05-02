@@ -3,7 +3,6 @@
 const {CompositeDisposable, Disposable} = require("atom");
 const {EntityType, FileSystem} = require("atom-fs");
 const StrategyManager = require("./strategy-manager.js");
-const IconTables      = require("../icons/icon-tables.js");
 const IconDelegate    = require("./icon-delegate.js");
 const IconNode        = require("./icon-node.js");
 const Storage         = require("../storage.js");
@@ -11,15 +10,19 @@ const Storage         = require("../storage.js");
 
 class IconService{
 	
-	constructor(){
+	init(){
 		this.disposables = new CompositeDisposable();
-		this.disposables.add(
-			FileSystem.observe(this.handleResource.bind(this))
-		);
-	}
-	
-	
-	init(paths){
+		this.disposables.add(FileSystem.observe(this.handleResource.bind(this)));
+
+		// Get notified when a file is deleted and let `FileSystem` know - see #693
+		this.disposables.add(atom.project.onDidChangeFiles(events => {
+			for(const event of events) {
+				if("deleted" === event.action) {
+					const resource = FileSystem.get(event.path);
+					if(resource) resource.destroy();
+				}
+			}
+		}));
 		StrategyManager.init();
 		this.isReady = true;
 	}
@@ -61,7 +64,7 @@ class IconService{
 		
 		if(resource.type & EntityType.SYMLINK)
 			this.disposables.add(
-				resource.onDidChangeRealPath(({from, to}) => {
+				resource.onDidChangeRealPath(({to}) => {
 					const target = FileSystem.get(to);
 					icon.master = target.icon;
 				})
@@ -83,7 +86,9 @@ class IconService{
 		if(isSymlink)
 			type |= EntityType.SYMLINK;
 		
-		return IconNode.forElement(element, path, type, isTabIcon);
+		const disposable = IconNode.forElement(element, path, type, isTabIcon);
+		module.exports.disposables.add(disposable);
+		return disposable;
 	}
 	
 	

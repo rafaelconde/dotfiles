@@ -1,6 +1,7 @@
 {CompositeDisposable} = require 'atom'
 autoCompleteJSX = require './auto-complete-jsx'
 autoCompleteStyledComponents = require './auto-complete-styled-components'
+autoCompeteEmmetCSS = require './auto-complete-emmet-css'
 AutoIndent = require './auto-indent'
 ttlGrammar = require './create-ttl-grammar'
 
@@ -32,7 +33,7 @@ module.exports =
       @textEditors[textEditor.id].add textEditor.observeGrammar (grammar) =>
         # Instantiate indentor for language-babel files
         if textEditor.getGrammar().packageName is LB
-          @textEditors[textEditor.id].autoIndent = new AutoIndent(textEditor)
+          @textEditors[textEditor.id]?.autoIndent = new AutoIndent(textEditor)
         else
           @textEditors[textEditor.id]?.autoIndent?.destroy()
           delete @textEditors[textEditor.id]?.autoIndent?
@@ -93,7 +94,7 @@ module.exports =
 
   # autocomplete-plus providers
   autoCompleteProvider: ->
-    [autoCompleteJSX, autoCompleteStyledComponents]
+    [autoCompleteJSX, autoCompleteStyledComponents, autoCompeteEmmetCSS]
 
   # preview tranpile provider
   provide:->

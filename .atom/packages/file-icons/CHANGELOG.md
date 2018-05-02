@@ -3,7 +3,125 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.11...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.19...HEAD
+
+
+[v2.1.19] - 2018-04-25
+----------------------
+### Added
+- **New icons:** Bitmap font (`.bdf`, `.fnt`, `.fon`, `.pcf`, `.psf`, `.psftx`, `.snf`), Vector font (replaces existing font-icon), V8 Turbofan
+- **Support:** JavaScript (`.es5`, `.es7`), Mocha (`mocha.min.js`), Normalize (`normalize.min.css`), PowerShell (`pwsh` executables), Prettier (`.prettierignore`), Snakefile (`.smk`)
+
+[v2.1.19]: https://github.com/file-icons/atom/releases/tag/v2.1.19
+
+
+[v2.1.18] - 2018-03-22
+----------------------
+### Added
+- **New icons:** Tipe (`.tipe`), Workbox (`workbox-config.js`)
+- **Support:** App Store (`.app` folders), Archive (`.sit`), Atom (`.atomproject.{json, cson}`), Binary (`.rnd`), Config (`mimeapps.list`, `terminalrc`), Data (`fstab`, `magic.mgc`, `.irb-history`, `.lesshst`, `.wget-hsts`), Download (`.crdownload`), Dylibs (`.appex` and `.ideplugin` folders), Finder (`.DS_Store`, `._*`), GNOME (`.gtkrc`), Lisp (`.sbclrc`), Octave (`.octave_hist`, `.octaverc`), R (`.Rhistory`), Swagger (`swagger.yaml`, `swagger.yml`), Tcl (`.tkcvs`, `.tkdiffrc`), V8 (`.v8flags*`), Vim (`.viminfo`), X11 (`.xinput`)
+
+### Fixed
+- [[`#716`][]]: Exception thrown from null filesystem reference
+
+[v2.1.18]: https://github.com/file-icons/atom/releases/tag/v2.1.18
+[`#716`]: https://github.com/file-icons/atom/issues/716
+
+
+
+[v2.1.17] - 2018-02-23
+----------------------
+### Added
+- **New icons:** Avro (`.avcs`, `.avdl`, `.avcs`), Brotli (updated), CoNLL (`.conll`, `.conllu`), glTF (`.gltf`), Nextflow (`.nf`, `nextflow.config`), Spacemacs (`.spacemacs`)
+- **Support:** Android (`.webarchivexml`), Archive file (`.maff`), Babel (`.babelrc.js`), Firefox OS (`.webapp`), HTML (`.mht`, `.mhtml`), Karma (`karma.conf.ts`), Ruby (`Appfile`), Safari Webarchives (`.webarchive`), Scala (`.kojo`), SSH-related (`.ssh/*`), TypoScript (`.typoscript`, `.tsconfig`)
+
+### Fixed
+- Broken auto-compilation when updating `config.cson`
+- [[`#698`][]]: Sporadic breakage on Linux
+- [[`#704`][]]: Icons changing incorrectly when opening certain filetypes (see below).
+
+### Removed <sub><br>(for [Atom 1.24.0][] and [Atom 1.25.0-beta0][] users only)</sub>
+Disabled support for updating icons when changing a file's grammar.
+A [regression][atom#16747] introduced in Atom 1.24.0 broke the feature and caused it to [change certain icons][`#704`] uncontrollably.
+Other versions of Atom are affected — installing the next release will restore the broken feature automatically.
+**If you disabled the grammar-strategy as a workaround for this issue, you can now re-enable it.**
+
+[v2.1.17]:           https://github.com/file-icons/atom/releases/tag/v2.1.17
+[atom#16747]:        https://github.com/atom/atom/issues/16747
+[Atom 1.24.0]:       https://github.com/atom/atom/releases/tag/v1.24.0
+[Atom 1.25.0-beta0]: https://github.com/atom/atom/releases/tag/v1.25.0-beta0
+[`#698`]:            https://github.com/file-icons/atom/issues/698
+[`#704`]:            https://github.com/file-icons/atom/issues/704#issuecomment-366134001
+
+
+
+[v2.1.16] - 2018-01-19
+----------------------
+### Fixed
+- [[`#490`][]]: Background resource deletion not updating icon cache
+- Subtle path-handling errors in Nuclide (see [`Atom-FS#1`](https://github.com/Alhadis/Atom-FS/pull/1))
+
+[v2.1.16]: https://github.com/file-icons/atom/releases/tag/v2.1.16
+[`#490`]: https://github.com/file-icons/atom/issues/490
+
+
+[v2.1.15] - 2017-12-15
+----------------------
+### Added
+- **New icons:** Robots (`robots.txt`)
+- **Support:** AppVeyor (`.appveyor.yml`), Bundler (`.gemfile`), Data (`.hson`)
+
+### Fixed
+- [[`#685`][]]: Error thrown when displaying MRU list with a blank tab open
+
+[v2.1.15]: https://github.com/file-icons/atom/releases/tag/v2.1.15
+[`#685`]: https://github.com/file-icons/atom/issues/685
+
+
+
+[v2.1.14] - 2017-11-20
+----------------------
+### Added
+- **New icons:** Browsersync (`bs-config.js`, `browser-sync.js`), Caffe (`.caffemodel`, `.solverstate`), CWL (`.cwl`), Imba (`.imba`), Prettier (`.prettierrc.{js,json,yaml,yml}`), Reek (`.reek`), YAML (`.yml`, `.yaml`), YARA (`.yar`, `.yara`)
+- **Support:** 3D Asset (`.rviz`, `.vcg`), Bazel (`BUILD.bazel`), Checklist (`.todo`, `.taskpaper`), Dashboard (`.cloc`), Data (`.webmanifest`), Doxygen (`.Doxygen`)
+
+### Fixed
+- [[`#657`][]]: Strange clipping of circular icons on High Sierra
+
+[v2.1.14]: https://github.com/file-icons/atom/releases/tag/v2.1.14
+[`#657`]: https://github.com/file-icons/atom/issues/657
+
+
+
+[v2.1.13] - 2017-10-11
+----------------------
+### Added
+- **New icons:** Backup (`.bak`, `.old`, `.orig`), IcoMoon (`icomoon{.*}.json`), Q/Kdb+ (`.k`, `.q`)
+- **Support:** Heroku (`Aptfile`), Ionic (`ionic.config.json`)
+
+### Fixed
+- `tree-view` icons not updating if project is opened by adding a folder to a blank workspace window.
+
+### Changed
+- `file-icons-coloured` class added to `body` element when coloured icons are enabled
+
+[v2.1.13]: https://github.com/file-icons/atom/releases/tag/v2.1.13
+
+
+
+[v2.1.12] - 2017-09-19
+----------------------
+### Added
+- **New icons:** Carthage (`Cartfile.*`), CocoaPods (`.podspec`), DataWeave (`.dwl`), Nomad (`.nomad`), PyPi (`requirements.in`), Stencil (`.stencil`)
+- **Support:** Checklist (`todo.txt`), Compressed files (`.wgt`), Config (`buildozer.spec`), Circuit Board (`.cir`, `.ckt`, `.tech`, `.struct`), Data (`.ejson`), Email/Author lists (`CODEOWNERS`), Generic (`.bal`), Git commit messages (`ATOM_COMMIT_EDITMSG`), Python tests (`{tests,test}/test_*.py`), Terraform (`.tf.json`), Xcode (`.xcworkspace`)
+
+### Fixed
+- Buggy handling of `.gitattributes` files where unrelated lines preceded a `linguist-language` assignment
+- `.gitattributes` patterns pointing to project's base directory (`/*.file`) matched nothing
+- Patched `tree-view` consumer in preparation for [`atom/tree-view#1169`](https://github.com/atom/tree-view/pull/1169)
+
+[v2.1.12]: https://github.com/file-icons/atom/releases/tag/v2.1.12
+
 
 
 [v2.1.11] - 2017-08-17

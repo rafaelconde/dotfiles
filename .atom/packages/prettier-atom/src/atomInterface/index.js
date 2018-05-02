@@ -19,6 +19,8 @@ const isLinterEslintAutofixEnabled = () =>
 
 const shouldUseEslint = () => getConfigOption('useEslint');
 
+const shouldUseStylelint = () => getConfigOption('useStylelint');
+
 const shouldUseEditorConfig = () => getConfigOption('useEditorConfig');
 
 const isFormatOnSaveEnabled = () => getConfigOption('formatOnSaveOptions.enabled');
@@ -26,25 +28,34 @@ const isFormatOnSaveEnabled = () => getConfigOption('formatOnSaveOptions.enabled
 const isDisabledIfNotInPackageJson = () =>
   getConfigOption('formatOnSaveOptions.isDisabledIfNotInPackageJson');
 
+const isDisabledIfNoConfigFile = () => getConfigOption('formatOnSaveOptions.isDisabledIfNoConfigFile');
+
 const shouldRespectEslintignore = () => getConfigOption('formatOnSaveOptions.respectEslintignore');
 
-const getJavascriptScopes = () => getConfigOption('formatOnSaveOptions.javascriptScopes');
+const getJavascriptScopes = () => getConfigOption('scopes.javascript');
 
-const getTypescriptScopes = () => getConfigOption('formatOnSaveOptions.typescriptScopes');
+const getTypescriptScopes = () => getConfigOption('scopes.typescript');
 
-const getCssScopes = () => getConfigOption('formatOnSaveOptions.cssScopes');
+const getCssScopes = () => getConfigOption('scopes.css');
 
-const getJsonScopes = () => getConfigOption('formatOnSaveOptions.jsonScopes');
+const getJsonScopes = () => getConfigOption('scopes.json');
 
-const getGraphQlScopes = () => getConfigOption('formatOnSaveOptions.graphQlScopes');
+const getGraphQlScopes = () => getConfigOption('scopes.graphQl');
 
-const getAllScopes = () => [
-  ...getJavascriptScopes(),
-  ...getTypescriptScopes(),
-  ...getCssScopes(),
-  ...getJsonScopes(),
-  ...getGraphQlScopes(),
-];
+const getMarkdownScopes = () => getConfigOption('scopes.markdown');
+
+const getVueScopes = () => getConfigOption('scopes.vue');
+
+const getAllScopes = () =>
+  [
+    getJavascriptScopes(),
+    getTypescriptScopes(),
+    getCssScopes(),
+    getJsonScopes(),
+    getGraphQlScopes(),
+    getMarkdownScopes(),
+    getVueScopes(),
+  ].reduce((acc, els) => acc.concat(els));
 
 const getWhitelistedGlobs = () => getConfigOption('formatOnSaveOptions.whitelistedGlobs');
 
@@ -75,10 +86,11 @@ const addWarningNotification = (message: string, options?: Atom$Notifications$Op
 const addErrorNotification = (message: string, options?: Atom$Notifications$Options) =>
   atom.notifications.addError(message, options);
 
-const attemptWithErrorNotification = (func: Function, ...args: Array<any>) => {
+const attemptWithErrorNotification = async (func: Function, ...args: Array<any>) => {
   try {
-    func(...args);
+    await func(...args);
   } catch (e) {
+    console.error(e); // eslint-disable-line no-console
     addErrorNotification(e.message, { dismissable: true, stack: e.stack });
   }
 };
@@ -103,15 +115,19 @@ module.exports = {
   getCssScopes,
   getJsonScopes,
   getGraphQlScopes,
+  getMarkdownScopes,
+  getVueScopes,
   getAllScopes,
   getWhitelistedGlobs,
   isDisabledIfNotInPackageJson,
+  isDisabledIfNoConfigFile,
   isFormatOnSaveEnabled,
   isLinterEslintAutofixEnabled,
   runLinter,
   shouldRespectEslintignore,
   shouldUseEditorConfig,
   shouldUseEslint,
+  shouldUseStylelint,
   toggleFormatOnSave,
   attemptWithErrorNotification,
 };

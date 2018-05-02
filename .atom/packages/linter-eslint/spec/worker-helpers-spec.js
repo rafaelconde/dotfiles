@@ -1,7 +1,9 @@
 'use babel'
 
 import * as Path from 'path'
+import rimraf from 'rimraf'
 import * as Helpers from '../src/worker-helpers'
+import { copyFileToTempDir } from './linter-eslint-spec'
 
 const getFixturesPath = path => Path.join(__dirname, 'fixtures', path)
 
@@ -59,9 +61,10 @@ describe('Worker Helpers', () => {
   })
 
   describe('getESLintInstance && getESLintFromDirectory', () => {
+    const pathPart = Path.join('testing', 'eslint', 'node_modules')
+
     it('tries to find an indirect local eslint using an absolute path', () => {
-      const path = Path.join(
-        getFixturesPath('indirect-local-eslint'), 'testing', 'eslint', 'node_modules')
+      const path = Path.join(getFixturesPath('indirect-local-eslint'), pathPart)
       const eslint = Helpers.getESLintInstance('', {
         useGlobalEslint: false,
         advancedLocalNodeModules: path
@@ -70,8 +73,7 @@ describe('Worker Helpers', () => {
     })
 
     it('tries to find an indirect local eslint using a relative path', () => {
-      const path = Path.join(
-        getFixturesPath('indirect-local-eslint'), 'testing', 'eslint', 'node_modules')
+      const path = Path.join(getFixturesPath('indirect-local-eslint'), pathPart)
       const [projectPath, relativePath] = atom.project.relativizePath(path)
 
       const eslint = Helpers.getESLintInstance('', {
@@ -176,6 +178,91 @@ describe('Worker Helpers', () => {
       const relativePath =
         Helpers.getRelativePath(fixtureDir, fixtureFile, { disableEslintIgnore: true })
       expect(relativePath).toBe('ignored.js')
+    })
+
+    it('returns the path relative to the project dir if provided when no ignore file is found', async () => {
+      const fixtureFile = getFixturesPath(Path.join('files', 'good.js'))
+      // Copy the file to a temporary folder
+      const tempFixturePath = await copyFileToTempDir(fixtureFile)
+      const tempDir = Path.dirname(tempFixturePath)
+      const filepath = Path.join(tempDir, 'good.js')
+      const tempDirParent = Path.dirname(tempDir)
+
+      const relativePath = Helpers.getRelativePath(tempDir, filepath, {}, tempDirParent)
+      // Since the project is the parent of the temp dir, the relative path should be
+      // the dir containing the file, plus the file. (e.g. asgln3/good.js)
+      const expectedPath = Path.join(Path.basename(tempDir), 'good.js')
+      expect(relativePath).toBe(expectedPath)
+      // Remove the temporary directory
+      rimraf.sync(tempDir)
+    })
+
+    it('returns just the file being linted if no ignore file is found and no project dir is provided', async () => {
+      const fixtureFile = getFixturesPath(Path.join('files', 'good.js'))
+      // Copy the file to a temporary folder
+      const tempFixturePath = await copyFileToTempDir(fixtureFile)
+      const tempDir = Path.dirname(tempFixturePath)
+      const filepath = Path.join(tempDir, 'good.js')
+
+      const relativePath = Helpers.getRelativePath(tempDir, filepath, {}, null)
+      expect(relativePath).toBe('good.js')
+
+      // Remove the temporary directory
+      rimraf.sync(tempDir)
+    })
+  })
+
+  describe('getRules', () => {
+    it('works with the getRules function introduced in ESLint v4.15.0', () => {
+      const cliEngine = {
+        getRules: () => 'foo'
+      }
+      expect(Helpers.getRules(cliEngine)).toBe('foo')
+    })
+
+    it('works with the hidden linter in ESLint v4 before v4.15.0', () => {
+      const cliEngine = {
+        linter: {
+          getRules: () => 'foo'
+        }
+      }
+      expect(Helpers.getRules(cliEngine)).toBe('foo')
+    })
+
+    it('returns an empty Map for old ESLint versions', () => {
+      const cliEngine = {}
+      expect(Helpers.getRules(cliEngine)).toEqual(new Map())
+    })
+  })
+
+  describe('didRulesChange', () => {
+    const emptyRules = new Map()
+    const rules1 = new Map([['rule1', {}]])
+    const rules2 = new Map([['rule1', {}], ['rule2', {}]])
+
+    it('returns false for empty Maps', () => {
+      const newRules = new Map()
+      expect(Helpers.didRulesChange(emptyRules, newRules)).toBe(false)
+    })
+
+    it('returns false when they are the same', () => {
+      expect(Helpers.didRulesChange(rules1, rules1)).toBe(false)
+    })
+
+    it('returns true when a new rule is added to an empty list', () => {
+      expect(Helpers.didRulesChange(emptyRules, rules1)).toBe(true)
+    })
+
+    it('returns true when the last rule is removed', () => {
+      expect(Helpers.didRulesChange(rules1, emptyRules)).toBe(true)
+    })
+
+    it('returns true when a new rule is added to an existing list', () => {
+      expect(Helpers.didRulesChange(rules1, rules2)).toBe(true)
+    })
+
+    it('returns true when a rule is removed from an existing list', () => {
+      expect(Helpers.didRulesChange(rules2, rules1)).toBe(true)
     })
   })
 })

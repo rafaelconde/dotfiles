@@ -6,6 +6,7 @@
       "seti-icons"
       "front-icons"
       "file-icons"
+      "prettier-atom"
     ]
     projectHome: "/Users/rafaelconde/Repositories"
     telemetryConsent: "limited"
@@ -18,7 +19,7 @@
     path: "/Users/rafaelconde/.dotfiles/.atom"
   editor:
     fontFamily: "SFMono-Regular"
-    fontSize: 12
+    fontSize: 22
     invisibles: {}
     scrollPastEnd: true
   "exception-reporting":
