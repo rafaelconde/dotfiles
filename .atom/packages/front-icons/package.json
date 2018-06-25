@@ -2,39 +2,39 @@
   "_args": [
     [
       {
-        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
+        "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
         "scope": null,
         "escapedName": null,
         "name": null,
-        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
-        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
+        "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
+        "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
         "type": "local"
       },
-      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-11841-13238-zr5szp.n0inva38fr"
+      "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-11843-6656-1685skn.d27sxg8pvi"
     ]
   ],
-  "_from": "../d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
-  "_id": "front-icons@1.16.0",
+  "_from": "../d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
+  "_id": "front-icons@1.17.0",
   "_inCache": true,
   "_location": "/front-icons",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
+    "raw": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
     "scope": null,
     "escapedName": null,
     "name": null,
-    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
-    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
+    "rawSpec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
+    "spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
     "type": "local"
   },
   "_requiredBy": [
     "#USER"
   ],
-  "_resolved": "file:../d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
-  "_shasum": "10ed7bbb94203ea73e58ef90348e82c6d5155ac3",
+  "_resolved": "file:../d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
+  "_shasum": "6e0d79344b6535f30d7a9d14b1399d4bc592b8e1",
   "_shrinkwrap": null,
-  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11841-13238-ion75m.37x5g0hpvi/package.tgz",
-  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-11841-13238-zr5szp.n0inva38fr",
+  "_spec": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/d-11843-6656-v0bkee.4x1gduz0k9/package.tgz",
+  "_where": "/private/var/folders/fz/1sycff6j7m1cc5d1_tx21pyh0000gn/T/apm-install-dir-11843-6656-1685skn.d27sxg8pvi",
   "bugs": {
     "url": "https://github.com/igorskuhar/front-icons/issues"
   },
@@ -58,5 +58,5 @@
     "type": "git",
     "url": "git+https://github.com/igorskuhar/front-icons.git"
   },
-  "version": "1.16.0"
+  "version": "1.17.0"
 }

@@ -3,7 +3,37 @@ Change Log
 All notable changes to the project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/).
 
-[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.19...HEAD
+[Unpublished]: https://github.com/file-icons/atom/compare/v2.1.21...HEAD
+
+
+[v2.1.21] - 2018-05-18
+----------------------
+### Added
+- **Support** C (`.xbm`, `.xpm`), Configs (`fontforge/hotkeys/*`), JavaScript (`.htc`, `.jscript`, `.jse`, `.jslib`, `.jspre`, `.pac`, `.pjs`, `.snap`), Maps (`.cidmap`)
+- [[`#734`][]]: Test-icons to test-files that end with `.test` or `.spec` before the file extension. Previously, this effect was limited to `.test.js` files located inside a `specs` or `tests` directory.
+
+### Fixed
+- [[`#661`][]]: Serialised storage state growing without bound
+
+[v2.1.21]: https://github.com/file-icons/atom/releases/tag/v2.1.21
+[`#661`]: https://github.com/file-icons/atom/issues/661
+[`#734`]: https://github.com/file-icons/atom/issues/734
+
+
+
+[v2.1.20] - 2018-05-09
+----------------------
+### Added
+- **New icons:** Caffe2 (`.caffe2model`, `{init,predict}_net.pb`, `{deploy,solver,train_val}.prototxt`), Dia (`.dia`), Go (rebranded), HoundCI (`.hound.yml`), NDepend (`.ndproj`, `.nproj`), Neo4J (`.cyp`, `.cypher`), PROS (`project.pros`), PullApprove (`.pullapprove.yml`), TLA+ (`.tla`), WDL (`.wdl`), WiX (`.wixproj`, `.wixobj`, `.wxs`, `.wxi`, `.wxl`)
+- **Support:** Data (`.prototxt`, `.pbtxt`), Debian (`.control`, `.dsc`) Electron (`.compilerc`, `.compilerc.json`), Firebase (`firestore.rules`), Readmes (`.changes`), RPM (`.rpmmacros`), Rust (`rust-toolchain`), Tests (`.test`, `.test.js`), VSCode (`.vcxproj.filters`), XML (`.admx`, `.cscfg`, `.natvis`, `.proj`, `.rdg`)
+
+### Changed
+- [[`#728`][]]: Replaced Go's gopher with [newly branded logo][gologo].
+
+[v2.1.20]: https://github.com/file-icons/atom/releases/tag/v2.1.20
+[gologo]: https://blog.golang.org/go-brand
+[`#728`]: https://github.com/file-icons/atom/issues/728
+
 
 
 [v2.1.19] - 2018-04-25

@@ -702,7 +702,8 @@ fileIcons:
 			[".w", "medium-maroon"]
 			[".nc", "dark-blue"]
 			[".upc", "medium-cyan"]
-			[".xpm", "medium-green"]
+			[".xbm", "medium-orange", alias: "X BitMap"]
+			[".xpm", "medium-green", alias: "X PixMap"]
 		]
 
 	"C++":
@@ -744,6 +745,15 @@ fileIcons:
 		match: [
 			[".caffemodel", "medium-maroon"]
 			[".solverstate", "medium-green"]
+		]
+
+	Caffe2:
+		icon: "caffe2"
+		priority: 2
+		match: [
+			[".caffe2model", "dark-blue"]
+			[/^(init|predict)_net\.pb$/i, "dark-blue"]
+			[/^(deploy|solver|train_val)\.prototxt$/i, "medium-purple"]
 		]
 
 	Cake:
@@ -1056,6 +1066,7 @@ fileIcons:
 			[/^buildozer\.spec$/i, "dark-blue", priority: 2]
 			[/config|settings|option|pref/i, null, priority: 0]
 			[/\/dev[-\w]+\/([^\/]+\/)*(DESC|Foundry|download|symbolmap)(\.in|\.proto)?$/, "dark-green", matchPath: true, priority: 1.5]
+			[/[\/\\]fontforge[\/\\]hotkeys[\/\\][^\/\\]+/i, "dark-blue", matchPath: true, priority: 0.75, scope: /fontforge.hotkeys/i]
 			[/\.git[\/\\](config|info[\/\\]\w+)$/, "dark-red", matchPath: true]
 			[/(^|[\/\\])\.ssh[\/\\]config$/, "dark-blue", matchPath: true, priority: 1.5]
 			[/^\/(private\/)?etc\/([^/]+\/)*[^/]*\.(cf|conf|ini)(\.default)?$/i, "dark-orange", matchPath: true]
@@ -1220,7 +1231,7 @@ fileIcons:
 			[".ndjson", "medium-orange"]
 			[".fea", "light-blue", scope: "opentype", alias: "afdko"]
 			[".json.eex", "medium-purple"]
-			[".proto", "dark-cyan", scope: "protobuf", alias: /^(protobuf|Protocol\s*Buffers?)$/i]
+			[/\.(proto|protote?xt|pbte?xt)$/i, "dark-cyan", scope: "protobuf", alias: /^(protobuf|Protocol\s*Buffers?)(\s*text)?$/i]
 			[".pytb", "medium-orange", scope: "python.traceback"]
 			[".pydeps", "dark-blue"]
 			[/\.pot?$/i, "medium-red"]
@@ -1264,7 +1275,7 @@ fileIcons:
 		icon: "debian"
 		match: [
 			[".deb", "medium-red"]
-			[/^control$/, "dark-cyan"]
+			[/(^|\.)(control|dsc)$/, "dark-cyan", scope: "deb-control"]
 			[/^rules$/, "medium-cyan"]
 		]
 
@@ -1288,6 +1299,11 @@ fileIcons:
 			[".dts", "medium-purple", scope: "dts", alias: "DeviceTree Source"]
 			[".dtsi", "medium-orange"]
 		]
+
+	Dia:
+		icon: "dia"
+		match: ".dia"
+		colour: "auto-cyan"
 
 	Diff:
 		icon: "diff"
@@ -1425,6 +1441,12 @@ fileIcons:
 		colour: "medium-green"
 		scope: "text.html.js"
 
+	Electron:
+		icon: "electron"
+		match: /\.compilerc(\.json)?$/i
+		colour: "dark-blue"
+		priority: 2
+
 	Elixir:
 		icon: "elixir"
 		match: [
@@ -1560,6 +1582,10 @@ fileIcons:
 		icon: "firebase"
 		match: [
 			[/^firebase\.json$/i, "medium-yellow", priority: 2]
+			[/^firestore\.rules?$/i, "medium-orange",
+				alias: "firerules"
+				scope: /\bsource\.fire(store|rules)(?=\\.|$)/i,
+				signature: /^service\s+cloud\.firestore\s+{/]
 			[".firebaserc", "medium-orange"]
 		]
 
@@ -1744,6 +1770,7 @@ fileIcons:
 			[/^configure\.ac$/, "medium-red"]
 			[/^Settings\.StyleCop$/, "medium-green"]
 			[".4th", "medium-blue"]
+			[/\.adm[lx]$/i, "dark-blue"]
 			[".abnf", "medium-green", "abnf"]
 			[".aepx", "medium-purple"]
 			[".agda", "dark-cyan"]
@@ -1759,6 +1786,7 @@ fileIcons:
 			[".brs", "dark-blue", "brightscript"]
 			[".capnp", "dark-red", scope: "capnp", alias: /^(Cap[^\w\s]?n\s*Proto|capnp)$/i]
 			[".ccxml", "dark-blue"]
+			[".cscfg", "medium-red"]
 			[".cgi", "medium-red"]
 			[".ch", "medium-red"]
 			[".clixml", "dark-blue"]
@@ -1766,6 +1794,7 @@ fileIcons:
 			[".ct", "dark-pink"]
 			[".cw", "medium-red"]
 			[".cy", "dark-green"]
+			[".rdg", "dark-purple"]
 			[".dita", "medium-purple"]
 			[".ditamap", "dark-purple"]
 			[".ditaval", "medium-green"]
@@ -1813,7 +1842,7 @@ fileIcons:
 			[".mumps", "medium-red"]
 			[".mxml", "dark-maroon"]
 			[".myt", "dark-blue"]
-			[".nproj", "medium-purple"]
+			[".natvis", "dark-green"]
 			[".odd", "light-green"]
 			[".ohm", "dark-yellow", "ohm"]
 			[".omgrofl", "dark-purple"]
@@ -1822,6 +1851,7 @@ fileIcons:
 			[".plist", "dark-cyan", scope: "plist"]
 			[".prg", "medium-red"]
 			[".prw", "dark-red"]
+			[".proj", "dark-green"]
 			[".props", "medium-cyan"]
 			[".psc1", "light-blue"]
 			[".pt", "medium-red"]
@@ -1852,9 +1882,6 @@ fileIcons:
 			[/\.wlp(4|ppp)$/i, "medium-blue", "wlp4"]
 			[".wsdl", "medium-red"]
 			[".wsf", "medium-blue"]
-			[".wxi", "light-orange"]
-			[".wxl", "light-maroon"]
-			[".wxs", "dark-purple"]
 			[".x3d", "medium-blue"]
 			[".xacro", "medium-red"]
 			[".xaml", "medium-blue"]
@@ -2104,6 +2131,12 @@ fileIcons:
 		match: ".hl"
 		colour: "medium-red"
 
+	HoundCI:
+		icon: "houndci"
+		match: /\.hound\.ya?ml$/i
+		colour: "medium-purple"
+		priority: 2
+
 	HTML:
 		icon: "html5"
 		match: [
@@ -2305,9 +2338,17 @@ fileIcons:
 			[".mjs", "auto-blue"]
 			[".sjs", "auto-pink"]
 			[".ssjs", "auto-red"]
+			[".jspre", "medium-orange"]
+			[".jscript", "auto-red", alias: "JScript"]
+			[".jse", "auto-maroon", alias: "JSCript Encoded"]
+			[".jslib", "auto-red", alias: "JSCript"]
 			[".xsjs", "auto-purple"]
 			[".xsjslib", "auto-blue"]
 			[".dust", "auto-maroon"]
+			[".htc", "dark-yellow"]
+			[".snap", "auto-yellow"]
+			[".pac", "medium-purple", alias: "Proxy Auto-Config"]
+			[".pjs", "dark-purple"]
 			[".js.ecr", "medium-cyan", priority: 2]
 			[".js.erb", "medium-red", priority: 2]
 		]
@@ -2638,6 +2679,16 @@ fileIcons:
 			[/\.(rnh|rno|run|runoff)$/i, "dark-maroon", "runoff"]
 			[/^tmac\.|^(mmn|mmt|toc\.entries)$/i, "dark-green", priority: 2]
 			[/([\\\/])(?:man(\w+)\1[^\\\/]+\.\2|(?:tmac|eqnchar)\.d\1(?:ms\.)?[^\\\/.]+(?:\.in)?)$/, "dark-green", matchPath: true]
+		]
+
+	Map:
+		icon: "sourcemap"
+		priority: 2
+		match: [
+			[".css.map", "medium-blue"]
+			[".js.map", "auto-yellow"]
+			[".cidmap", "medium-orange", "cidmap"]
+			[".map", "dark-blue", priority: 0.5]
 		]
 
 	Mapbox:
@@ -3027,12 +3078,23 @@ fileIcons:
 		match: ".ncl"
 		colour: "medium-green"
 
+	NDepend:
+		icon: "ndepend"
+		match: /\.nd?proj$/i
+		colour: "medium-blue"
+
 	Neko:
 		icon: "neko"
 		match: [
 			[".neko", "medium-orange", "neko"]
 			[/^run\.n$/, "dark-orange", priority: 2]
 		]
+
+	Neo4J:
+		icon: "neo4j"
+		match: /\.cyp(her)?$/i
+		colour: "auto-blue"
+		scope: "neo4j"
 
 	NetLinx:
 		icon: "amx"
@@ -3539,6 +3601,12 @@ fileIcons:
 		match: ".ppd"
 		colour: "dark-cyan"
 
+	PROS:
+		icon: "pros"
+		match: /^project\.pros$/i
+		colour: "medium-orange"
+		priority: 1.5;
+
 	Processing:
 		icon: "processing"
 		scope: "processing"
@@ -3577,6 +3645,12 @@ fileIcons:
 			[".pug", "medium-red", scope: "pug"]
 			[/^\.pug-lintrc/i, "medium-orange", priority: 2]
 		]
+
+	PullApprove:
+		icon: "pullapprove"
+		match: /^\.?pullapprove\.ya?ml$/i
+		colour: "dark-blue"
+		priority: 2
 
 	Puppet:
 		icon: "puppet"
@@ -3695,6 +3769,7 @@ fileIcons:
 			[/^(notice|bugs|changes|change[-_]?log([-._]?\d+)?|contribute|contributing|contributors|copying(\.regex)?|hacking|history|install|maintainers|manifest|more\.stuff|notes|problems|projects|revision|terms|thanks|warnings)(_\w+)?$/i, "dark-blue", priority: 2]
 			[/\b(changelog|copying(v?\d)?|install|read[-_]?me)\b|^licen[sc]es?[-._]/i, "medium-blue", priority: 0]
 			[/^news([-_.]?[-\d]+)?$/i, "dark-blue", priority: 0]
+			[".changes", "medium-blue"]
 		]
 
 	REALbasic:
@@ -3733,7 +3808,7 @@ fileIcons:
 	"Red Hat":
 		icon: "red-hat"
 		match: [
-			[".rpm", "medium-red"]
+			[/\.rpm(macros)?$/i, "medium-red"]
 			[".spec", "dark-red"]
 		]
 
@@ -3844,6 +3919,7 @@ fileIcons:
 		match: [
 			[".rs", "medium-maroon", "rust"]
 			[".rlib", "light-maroon"]
+			[/^rust-toolchain$/, "medium-red"]
 		]
 
 	Safari:
@@ -4070,15 +4146,6 @@ fileIcons:
 		match: [
 			[/\.(sma|sp)$/i, "auto-yellow", scope: "sp", alias: "sourcemod"]
 			[".inc", "medium-green"]
-		]
-
-	"Source Map":
-		icon: "sourcemap"
-		priority: 2
-		match: [
-			[".css.map", "medium-blue"]
-			[".js.map", "auto-yellow"]
-			[".map", "dark-blue", priority: 0.5]
 		]
 
 	Spacemacs:
@@ -4308,24 +4375,23 @@ fileIcons:
 
 	"Test, CoffeeScript":
 		icon: "test-coffee"
-		priority: 1.5
-		matchPath: true
-		match: /([\\\x2F])(test|spec)s?(\1((?!\1).)+)*\1((?!\1).)+[._-](spec|test)s?\.(coffee|iced)$/i
+		match: /[._-](spec|test)s?\.((lit)?coffee|iced|cjsx)$/i
 		colour: "auto-maroon"
+		priority: 1.5
 
 	"Test, Generic":
 		icon: "test-generic"
 		match: [
 			[/([\\\x2F])t\1t\d+(?:(?!\1).)+\.sh$/i, "medium-green", matchPath: true, priority: 1.5]
+			[".test", "medium-green", priority: 0.25]
 			[".xspec", "dark-green"]
 		]
 
 	"Test, JavaScript":
 		icon: "test-js"
-		priority: 1.5
-		matchPath: true
-		match: /([\\\x2F])(test|spec)s?(\1((?!\1).)+)*\1((?!\1).)+[._-](spec|test)s?\.([_ms]?js|js[bms]|es\d*)$/i
+		match: /[._-](spec|test)s?\.([_ms]?js|js[bms]|es\d*)$/i
 		colour: "auto-yellow"
+		priority: 1.5
 
 	"Test, Perl":
 		icon: "test-perl"
@@ -4337,24 +4403,23 @@ fileIcons:
 
 	"Test, Python":
 		icon: "test-python"
-		priority: 1.5
-		matchPath: true
-		match: /([\\\x2F])(test|spec)s?(\1((?!\1).)+)*\1(((?!\1).)+[._-](?:spec|test)s?|(?:spec|test)s?[._-].+)\.py(3|thon)?$/i
-		colour: "dark-blue"
+		match: [
+			[/[._-](spec|test)s?\.py(3|thon)?/i, "dark-blue", priority: 1.5]
+			[/([\\\x2F])(test|spec)s?(\1((?!\1).)+)*\1(((?!\1).)+[._-](?:spec|test)s?|(?:spec|test)s?[._-].+)\.py(3|thon)?$/i, "dark-blue", priority: 1.5, matchPath: true]
+		]
 
 	"Test, React":
 		icon: "test-react"
 		priority: 1.5
-		matchPath: true
-		match: /([\\\x2F])(test|spec)s?(\1((?!\1).)+)*\1((?!\1).)+[._-](spec|test)s?\.(jsx|react\.js)$/i
+		match: /[._-](spec|test)s?\.(jsx|react\.js)$/
 		colour: "auto-blue"
 
 	"Test, Ruby":
 		icon: "test-ruby"
-		priority: 2
-		matchPath: true
-		match: /([\\\x2F])(test|spec)s?(\1((?!\1).)+)*\1((?!\1).)+[._-](spec|test)s?\.rb$/i
-		colour: "auto-red"
+		match: [
+			[/[._-](spec|test)s?\.(rb|ruby)$/i, "auto-red", priority: 2]
+			[/([\\\x2F])(t|tests?|specs?)\1+(?:(?!\1).)*\.(rb|ruby)$/, "auto-red", priority: 2, matchPath: true]
+		]
 
 	"Test, TypeScript":
 		icon: "test-ts"
@@ -4452,6 +4517,12 @@ fileIcons:
 		icon: "tipe"
 		match: ".tipe"
 		colour: "medium-cyan"
+
+	"TLA+":
+		icon: "tla"
+		match: ".tla"
+		colour: "medium-maroon"
+		scope: "tla"
 
 	tmux:
 		icon: "tmux"
@@ -4638,7 +4709,7 @@ fileIcons:
 			[".vsix", "medium-cyan"]
 			[".csproj", "dark-blue"]
 			[".vbproj", "dark-red"]
-			[/\.vcx?proj$/i, "dark-purple"]
+			[/\.vcx?proj(\.[-\w]+)*$/i, "dark-purple", priority: 2]
 			[/\.vssettings(\.json)?$/i, "dark-green", priority: 2]
 			[/\.vscodeignore(\.json)?$/i, "medium-blue", priority: 2]
 			[".vstemplate", "medium-purple"]
@@ -4672,6 +4743,13 @@ fileIcons:
 		priority: 2
 		match: /\.watchmanconfig$|^watchman\.json$/i
 		colour: "medium-blue"
+
+	WDL:
+		icon: "wdl"
+		match: ".wdl"
+		colour: "medium-blue"
+		alias: "Workflow Description Language"
+		scope: /(^|\.)wdl(?=$|\.)/i
 
 	WebAssembly:
 		icon: "wasm"
@@ -4719,6 +4797,16 @@ fileIcons:
 			[".cmd", "medium-purple"]
 			[/\.(exe|com|msi)$/i]
 			[".reg", "medium-blue"]
+		]
+
+	WiX:
+		icon: "wix"
+		match: [
+			[".wixproj", "medium-orange"]
+			[".wixobj", "medium-red"]
+			[".wxs", "dark-purple"]
+			[".wxi", "auto-orange"]
+			[".wxl", "auto-maroon"]
 		]
 
 	Workbox:
